@@ -12,8 +12,10 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
 
-becca = SHEET.worksheet('Becca')
 
-data = becca.get_all_values()
+def get_names():
+    names = SHEET.get_worksheet(0)
+    data = names.col_values(1)
+    print(data)
 
-print(data)
+get_names()
