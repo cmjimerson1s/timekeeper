@@ -18,4 +18,11 @@ def get_names():
     data = names.col_values(1)
     print(data)
 
+
+def make_employee():
+    SHEET.add_worksheet(title = 'Eddy', rows = 100, cols=20)
+
+
+
 get_names()
+make_employee()
