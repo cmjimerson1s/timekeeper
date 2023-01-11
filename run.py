@@ -12,6 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
 
+NAMES = SHEET.get_worksheet(0)
 
 def get_names():
     """
@@ -29,6 +30,9 @@ def add_new_sheet():
     SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
 
 
+def add_new_name():
+    NAMES.update('A4', 'Eddy')
 
+add_new_name()
 get_names()
 add_new_sheet()
