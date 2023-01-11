@@ -88,6 +88,7 @@ def main_menu(name_choice):
 
 def menu_one(name_choice, menu_choice):
     print('Menu One is Here')
+    print(name_choice)
 
 start_program()
 
