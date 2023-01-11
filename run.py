@@ -29,21 +29,7 @@ def start_program():
 
         employee_choice = input('Employee: ')
 
-        
-        if employee_choice in list:
-            print(employee_choice)
-        else:
-            print('Wrong')
-    
-            
-    
-
-    
-
-
-        # if validate_employee_name(list, employee_choice):
-        #     print('Data valid')
-        #     break
+        validate_employee_name(list, employee_choice)
 
 
 def add_new_sheet():
@@ -57,15 +43,11 @@ def add_new_name():
     NAMES.update('A4', 'Eddy')
 
 
-# def validate_employee_name(names, choice):
-#     try:
-#         if choice in names:
-#             print(choice)
-#     except ValueError as e:
-#         print(f'Invalid data: {e} Not valid employee, please try again')
-#         return False
-    
-#     return True
+def validate_employee_name(names, choice):
+    if choice in names:
+        print(choice)
+    else:
+        print('Wrong')
 
 
 
