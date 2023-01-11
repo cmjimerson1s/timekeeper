@@ -44,6 +44,9 @@ def add_new_name():
 
 
 def validate_employee_name(names, choice):
+    """
+    Validates that the chosen name by the user matches current employees
+    """
     if choice in names:
         print(choice)
     else:
