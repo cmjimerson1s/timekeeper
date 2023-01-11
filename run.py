@@ -13,6 +13,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
 
 NAMES = SHEET.get_worksheet(0)
+NAME_CHOICE = ''
 
 
 def start_program():
@@ -20,6 +21,7 @@ def start_program():
     Initilaizes the program requesting the employee user requires to view/edit"
     """
     while True:
+        global NAME_CHOICE
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
         list = ", ".join(data)
@@ -27,22 +29,13 @@ def start_program():
         print(f'Current employees are {list}.')
         print('Please note, your choice is case sensitive.')
 
-        employee_choice = input('Employee: ')
+        NAME_CHOICE = input('Employee: ')
+        
 
-        if validate_employee_name(list, employee_choice):
+        if validate_employee_name(list, NAME_CHOICE):
             main_menu()
             break
 
-
-def add_new_sheet():
-    """
-    Adds new worksheet to spreadsheet
-    """
-    SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
-
-
-def add_new_name():
-    NAMES.update('A4', 'Eddy')
 
 
 def validate_employee_name(names, choice):
@@ -59,11 +52,27 @@ def validate_employee_name(names, choice):
     return True
 
 
+def get_current_choice():
+    return NAME_CHOICE
+
 def main_menu():
     print('This is the main menu')
+    print(NAME_CHOICE)
+
 
 
 start_program()
+
 # add_new_name()
 # get_names()
 # add_new_sheet()
+
+# def add_new_sheet():
+#     """
+#     Adds new worksheet to spreadsheet
+#     """
+#     SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
+
+
+# def add_new_name():
+#     NAMES.update('A4', 'Eddy')
