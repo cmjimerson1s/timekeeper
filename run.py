@@ -14,12 +14,18 @@ SHEET = GSPREAD_CLIENT.open('timekeeper')
 
 
 def get_names():
+    """
+    Collects the names from the Employee sheet and displays
+    """
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
     print(data)
 
 
 def add_new_sheet():
+    """
+    Adds new worksheet to spreadsheet
+    """
     SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
 
 
