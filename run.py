@@ -29,9 +29,14 @@ def start_program():
         print(f'Current employees are {list}.')
         print('Please note, your choice is case sensitive.')
 
-        NAME_CHOICE = input('Employee: ')
+        while True:
+            NAME_CHOICE = input('Employee: ')
+            if not NAME_CHOICE:
+                print('Please enter valid name.')
+            else:
+                break
+                
         
-
         if validate_employee_name(list, NAME_CHOICE):
             main_menu()
             break
@@ -52,12 +57,16 @@ def validate_employee_name(names, choice):
     return True
 
 
-def get_current_choice():
-    return NAME_CHOICE
 
 def main_menu():
-    print('This is the main menu')
-    print(NAME_CHOICE)
+    """
+    Initializes the main menu for the user to choose what to do with selected employee
+    """
+    print('Please chose one of the following options\n')
+    print(f"1. View {NAME_CHOICE}'s Hours\n")
+    print(f"2. Edit {NAME_CHOICE}'s Hours\n")
+    print(f"3. View {NAME_CHOICE}'s Salary\n")
+    print("4. Return to Employee Select")
 
 
 
