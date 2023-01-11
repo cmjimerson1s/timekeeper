@@ -20,7 +20,7 @@ def get_names():
 
 
 def make_employee():
-    SHEET.add_worksheet(title = 'Eddy', rows = 100, cols=20)
+    SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
 
 
 
