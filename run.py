@@ -17,13 +17,21 @@ NAMES = SHEET.get_worksheet(0)
 
 def start_program():
     """
-    Initilaizes the program requesting the employee to view/edit"
+    Initilaizes the program requesting the employee user requires to view/edit"
     """
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
     list = ", ".join(data)
-    print('Please choose the employee whose data you wish to view.')
-    print(f'The current employees are {list}.')
+    print('Please choose the employee whose working hours you wish to view.')
+    print(f'Current employees are {list}.')
+    print('Please note, your choice is case sensitive.')
+
+    employee_choice = input('Employee: ')
+
+    if employee_choice in data:
+        print(employee_choice)
+    else:
+        print('Not valid employee, please try again')
 
 def add_new_sheet():
     """
