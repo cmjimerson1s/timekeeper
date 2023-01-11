@@ -19,10 +19,10 @@ def get_names():
     print(data)
 
 
-def make_employee():
+def add_new_sheet():
     SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
 
 
 
 get_names()
-make_employee()
+add_new_sheet()
