@@ -29,7 +29,9 @@ def start_program():
 
         employee_choice = input('Employee: ')
 
-        validate_employee_name(list, employee_choice)
+        if validate_employee_name(list, employee_choice):
+            main_menu()
+            break
 
 
 def add_new_sheet():
@@ -48,12 +50,17 @@ def validate_employee_name(names, choice):
     Validates that the chosen name by the user matches current employees
     """
     if choice in names:
-        print(choice)
+        print("Correct")
+        
     else:
         print('Wrong')
+        return False
+    
+    return True
 
 
-
+def main_menu():
+    print('This is the main menu')
 
 
 start_program()
