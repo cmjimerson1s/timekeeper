@@ -11,9 +11,7 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
-
 NAMES = SHEET.get_worksheet(0)
-NAME_CHOICE = ''
 
 
 def start_program():
@@ -21,7 +19,6 @@ def start_program():
     Initilaizes the program requesting the employee user requires to view/edit"
     """
     while True:
-        global NAME_CHOICE
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
         list = ", ".join(data)
@@ -30,17 +27,16 @@ def start_program():
         print('Please note, your choice is case sensitive.')
 
         while True:
-            NAME_CHOICE = input('Employee: ')
-            if not NAME_CHOICE:
+            # This validates the input, ensureing inability to enter a blank input
+            name_choice = input('Employee: ')
+            if not name_choice:
                 print('Please enter valid name.')
             else:
                 break
-                
-        
-        if validate_employee_name(list, NAME_CHOICE):
-            main_menu()
+            
+        if validate_employee_name(list, name_choice):
+            main_menu(name_choice)
             break
-
 
 
 def validate_employee_name(names, choice):
@@ -48,27 +44,50 @@ def validate_employee_name(names, choice):
     Validates that the chosen name by the user matches current employees
     """
     if choice in names:
-        print("Correct")
-        
+        print("Correct")    
     else:
         print('Wrong')
         return False
-    
+    return True
+
+def validate_menu_num(menu, choice):
+    """
+    Validates that the chosen menu number by the user matches current menu
+    """
+    if choice in menu:
+        print("Correct")    
+    else:
+        print('Wrong')
+        return False
     return True
 
 
-
-def main_menu():
+def main_menu(name_choice):
     """
     Initializes the main menu for the user to choose what to do with selected employee
     """
-    print('Please chose one of the following options\n')
-    print(f"1. View {NAME_CHOICE}'s Hours\n")
-    print(f"2. Edit {NAME_CHOICE}'s Hours\n")
-    print(f"3. View {NAME_CHOICE}'s Salary\n")
-    print("4. Return to Employee Select")
+    while True:
+        menu_options = ['1', '2', '3', '4']
+        print('Please chose one of the following options\n')
+        print(f"1. View {name_choice}'s Hours\n")
+        print(f"2. Edit {name_choice}'s Hours\n")
+        print(f"3. Calculate {name_choice}'s Current Monthly Salary\n")
+        print("4. Return to Employee Select\n")
+        
+        while True:
+                # This validates the input, ensureing inability to enter a blank input
+                main_menu_choice = input("Menu Number: ")
+                if not main_menu_choice:
+                    print('Please enter valid menu number.')
+                else:
+                    break
 
+        if validate_menu_num(menu_options, main_menu_choice):
+            menu_one(name_choice, main_menu_choice)
+            break
 
+def menu_one(name_choice, menu_choice):
+    print('Menu One is Here')
 
 start_program()
 
