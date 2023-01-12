@@ -70,6 +70,7 @@ def main_menu(name_choice):
     """
     while True:
         menu_options = ['1', '2', '3', '4']
+        print('Main Menu \n')
         print('Please chose one of the following options\n')
         print(f"1. View {name_choice}'s Hours\n")
         print(f"2. Edit {name_choice}'s Hours\n")
@@ -85,11 +86,11 @@ def main_menu(name_choice):
                     break
 
         if validate_menu_num(menu_options, main_menu_choice):
-            menu_one(name_choice, main_menu_choice)
+            menu_selector(name_choice, main_menu_choice)
             break
 
 
-def menu_one(name_choice, menu_choice):
+def menu_one(name_choice):
     """
     Collects and displays all of the current time keeping data for selected employee
     """
@@ -103,6 +104,7 @@ def menu_one(name_choice, menu_choice):
         print(info)
 
         while True:
+            # This provides the return to the main menu function, still passing the initial chosen employee name
             main_menu_return = input('Press Enter to return to Main Menu:')
             if not main_menu_return:
                 main_menu(name_choice)
@@ -110,8 +112,28 @@ def menu_one(name_choice, menu_choice):
                 print('If done, please press enter to return to main menu.')
 
 
+def menu_two(name_choice):
+    """
+    Collects and displays all the current time keeping data for selected employee
+    Allows user to select an existing data, clockin, and clockout to edit
+    """
+    print(f"Menu 2: Currently viewing {name_choice}'s Hours\n")
+    names = SHEET.get_worksheet(0)
+    data = names.col_values(1)
+    x = data.index(name_choice)
+    hours = SHEET.get_worksheet(x)
+    info = pd.DataFrame(hours.get_all_records())
+    print(info)
 
 
+def menu_selector(name_choice, main_menu_choice):
+    """
+    Runs to direct user towards the apporiate menu of their selection
+    """
+    if main_menu_choice == "1":
+        menu_one(name_choice)
+    else:
+        menu_two(name_choice)
 
 
 
