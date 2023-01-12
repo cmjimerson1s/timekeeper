@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import pandas as pd
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,7 +13,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
 NAMES = SHEET.get_worksheet(0)
-#This is a change
+
 
 def start_program():
     """
@@ -50,6 +51,7 @@ def validate_employee_name(names, choice):
         return False
     return True
 
+
 def validate_menu_num(menu, choice):
     """
     Validates that the chosen menu number by the user matches current menu
@@ -86,11 +88,88 @@ def main_menu(name_choice):
             menu_one(name_choice, main_menu_choice)
             break
 
+
 def menu_one(name_choice, menu_choice):
-    print('Menu One is Here')
-    print(name_choice)
+    """
+    Collects and displays all of the current time keeping data for selected employee
+    """
+    names = SHEET.get_worksheet(0)
+    data = names.col_values(1)
+    x = data.index(name_choice)
+    
+    hours = SHEET.get_worksheet(x)
+    hour_dates = hours.get_all_values()
+    
+    info = pd.DataFrame(hour_dates())
+
+    print(info)
+
+
+
+
+
+
+
+
 
 start_program()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # add_new_name()
 # get_names()
