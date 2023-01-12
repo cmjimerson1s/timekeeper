@@ -93,12 +93,22 @@ def menu_one(name_choice, menu_choice):
     """
     Collects and displays all of the current time keeping data for selected employee
     """
-    names = SHEET.get_worksheet(0)
-    data = names.col_values(1)
-    x = data.index(name_choice)
-    hours = SHEET.get_worksheet(x)
-    info = pd.DataFrame(hours.get_all_records())
-    print(info)
+    while True:
+        print(f"Menu 1: Currently viewing {name_choice}'s Hours \n")
+        names = SHEET.get_worksheet(0)
+        data = names.col_values(1)
+        x = data.index(name_choice)
+        hours = SHEET.get_worksheet(x)
+        info = pd.DataFrame(hours.get_all_records())
+        print(info)
+
+        while True:
+            main_menu_return = input('Press Enter to return to Main Menu:')
+            if not main_menu_return:
+                main_menu(name_choice)
+            else:
+                print('If done, please press enter to return to main menu.')
+
 
 
 
