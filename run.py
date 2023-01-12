@@ -96,12 +96,8 @@ def menu_one(name_choice, menu_choice):
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
     x = data.index(name_choice)
-    
     hours = SHEET.get_worksheet(x)
-    hour_dates = hours.get_all_values()
-    
-    info = pd.DataFrame(hour_dates())
-
+    info = pd.DataFrame(hours.get_all_records())
     print(info)
 
 
