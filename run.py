@@ -124,11 +124,15 @@ def menu_two(name_choice):
     hours = SHEET.get_worksheet(x)
     info = pd.DataFrame(hours.get_all_records())
     print(info)
-    # edit_choice = input('What entry would you like to edit(Use number in far left column): ')
-    edit_choice = 1 + 2
-    edit_line = hours.row_values(edit_choice)
-    print(edit_line)
+    edit_choice = (int(input('What entry would you like to edit(Use number in far left column): '))) + 2
 
+    if edit_choice == 3:
+        display_choice = hours.row_values(edit_choice)
+        print(display_choice)
+        TimeEdit()
+        
+
+    
 def menu_selector(name_choice, main_menu_choice):
     """
     Runs to direct user towards the apporiate menu of their selection
@@ -145,7 +149,16 @@ def menu_selector(name_choice, main_menu_choice):
 
 start_program()
 
+class TimeEdit:
 
+    def __init__(self, date, clockin, clockout):
+        self.date = date
+        self.clockin = clockin
+        self.clockout = clockout
+
+new_date = input("Enter new date: ")
+new_clockin = input("Enter new clock-in: ")
+new_clockout = input("Enter new clock-out: ")
 
 
 
