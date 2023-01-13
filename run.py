@@ -126,6 +126,10 @@ def menu_selector(name_choice, main_menu_choice):
         menu_one(name_choice)
     elif main_menu_choice == "2":
         menu_two(name_choice)
+    elif main_menu_choice == "3":
+        menu_three(name_choice)
+    elif main_menu_choice == "4":
+        menu_four
 
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
@@ -176,7 +180,7 @@ def validate_menue_two_edit_choice(edit_choice, list_of_hours):
     else:
         print("Invalid entry. Try again.")
         return False
-    return True 
+    return True
 
 
 
