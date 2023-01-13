@@ -129,8 +129,8 @@ def menu_two(name_choice):
     if edit_choice == 3:
         display_choice = hours.row_values(edit_choice)
         print(display_choice)
-        TimeEdit()
-        
+        get_edit_row(edit_choice, hours)
+
 
     
 def menu_selector(name_choice, main_menu_choice):
@@ -142,6 +142,11 @@ def menu_selector(name_choice, main_menu_choice):
     else:
         menu_two(name_choice)
 
+def get_edit_row(row_choice, sheet_choice):
+    print(row_choice)
+    print(sheet_choice)
+
+
 
 
 
@@ -149,16 +154,16 @@ def menu_selector(name_choice, main_menu_choice):
 
 start_program()
 
-class TimeEdit:
+# class TimeEdit:
 
-    def __init__(self, date, clockin, clockout):
-        self.date = date
-        self.clockin = clockin
-        self.clockout = clockout
+#     def __init__(self, date, clockin, clockout):
+#         self.date = date
+#         self.clockin = clockin
+#         self.clockout = clockout
 
-new_date = input("Enter new date: ")
-new_clockin = input("Enter new clock-in: ")
-new_clockout = input("Enter new clock-out: ")
+# new_date = input("Enter new date: ")
+# new_clockin = input("Enter new clock-in: ")
+# new_clockout = input("Enter new clock-out: ")
 
 
 
