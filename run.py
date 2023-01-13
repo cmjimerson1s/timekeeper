@@ -95,6 +95,7 @@ def menu_two(name_choice):
     """
     while True:
         print(f"Menu 2: Currently viewing {name_choice}'s Hours\n")
+        print("To return to main menu, enter 'Return'.")
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
         x = data.index(name_choice)
@@ -108,6 +109,8 @@ def menu_two(name_choice):
             string_edit_choice = str(input('What entry would you like to edit(Use number in far left column): '))
             if not string_edit_choice:
                 print('Please enter valid menu number.')
+            elif string_edit_choice == "Return":
+                main_menu(name_choice)
             else:
                 break
 
@@ -116,6 +119,8 @@ def menu_two(name_choice):
             display_choice = hours.row_values(edit_choice)
             print(display_choice)
             get_edit_row(edit_choice, hours, name_choice)
+
+
 
 
 def menu_three(name_choice):
