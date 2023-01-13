@@ -45,13 +45,14 @@ def main_menu(name_choice):
     Initializes the main menu for the user to choose what to do with selected employee
     """
     while True:
-        menu_options = ['1', '2', '3', '4']
+        menu_options = ['1', '2', '3', '4', '5']
         print('Main Menu \n')
         print('Please chose one of the following options\n')
         print(f"1. View {name_choice}'s Hours\n")
         print(f"2. Edit {name_choice}'s Hours\n")
-        print(f"3. Calculate {name_choice}'s Current Monthly Salary\n")
-        print("4. Return to Employee Select\n")
+        print(f"3. Add Entry to {name_choice}'s Hours\n")
+        print(f"4. Calculate {name_choice}'s Current Monthly Salary\n")
+        print("5. Return to Employee Select\n")
         
         while True:
             # This validates the input, ensureing inability to enter a blank input
@@ -76,7 +77,14 @@ def menu_one(name_choice):
         data = names.col_values(1)
         x = data.index(name_choice)
         hours = SHEET.get_worksheet(x)
-        info = pd.DataFrame(hours.get_all_records())
+        hours_list = hours.get_all_values()
+        testing = hours.get_all_records()
+        new_list = sorted(testing, key=lambda d: d['Date'])
+        # heading = hours_list.pop(0)
+        # collected_data = hours_list.remove(0)
+        # collected_list = [heading]
+        info = pd.DataFrame(new_list)
+        print(new_list)
         print(info)
 
         while True:
@@ -124,7 +132,16 @@ def menu_two(name_choice):
 
 
 def menu_three(name_choice):
-    print("This is menu three")
+    names = SHEET.get_worksheet(0)
+    data = names.col_values(1)
+    x = data.index(name_choice)
+    hours = SHEET.get_worksheet(x)
+    information = hours.get_all_values()
+    print(sorted(information))
+
+
+def menu_four(name_choice):
+    print('This is mene four')
 
 
 def menu_selector(name_choice, main_menu_choice):
@@ -138,6 +155,8 @@ def menu_selector(name_choice, main_menu_choice):
     elif main_menu_choice == "3":
         menu_three(name_choice)
     elif main_menu_choice == "4":
+        menu_four(name_choice)
+    elif main_menu_choice == "5":
         start_program()
 
 
