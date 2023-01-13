@@ -118,6 +118,13 @@ def menu_two(name_choice):
             get_edit_row(edit_choice, hours, name_choice)
 
 
+def menu_three(name_choice):
+    print("This is menu three")
+
+def menu_four(name_choice):
+    print("This is menu four")
+
+
 def menu_selector(name_choice, main_menu_choice):
     """
     Runs to direct user towards the apporiate menu of their selection
