@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
+from datetime import datetime
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -147,12 +148,16 @@ def menu_four(name_choice):
     clockin_list.pop(0)
     clockout_list = hours.col_values(3)
     clockout_list.pop(0)
-    print(clockin_list)
+    time_ci = map(datetime.strptime, clockin_list, "%H:%M:%S")
+    print(list(time_ci))
     print(clockout_list)
 
     # salary_list = []
     # for start, end in zip(clockin_list, clockout_list):
-    #     # salary_calc = int(end) - int(start)
+    #     salary_calc = int(end) - int(start)
+    #     salary_list.append(salary_calc)
+    
+    # print(salary_list)
 
 
 
