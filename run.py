@@ -77,14 +77,9 @@ def menu_one(name_choice):
         data = names.col_values(1)
         x = data.index(name_choice)
         hours = SHEET.get_worksheet(x)
-        hours_list = hours.get_all_values()
-        testing = hours.get_all_records()
-        new_list = sorted(testing, key=lambda d: d['Date'])
-        # heading = hours_list.pop(0)
-        # collected_data = hours_list.remove(0)
-        # collected_list = [heading]
+        record_set = hours.get_all_records()
+        new_list = sorted(record_set, key=lambda d: d['Date'])
         info = pd.DataFrame(new_list)
-        print(new_list)
         print(info)
 
         while True:
@@ -136,12 +131,13 @@ def menu_three(name_choice):
     data = names.col_values(1)
     x = data.index(name_choice)
     hours = SHEET.get_worksheet(x)
-    information = hours.get_all_values()
-    print(sorted(information))
+
+    print('Please enter the date, clock-in, and clock-out you would like to add. \n')
+    add_new_hours(hours)
+    
 
 
-def menu_four(name_choice):
-    print('This is mene four')
+
 
 
 def menu_selector(name_choice, main_menu_choice):
@@ -176,6 +172,17 @@ def update_cells_hours(date, clockin, clockout, row, sheet, name_choice):
     print("Updating date and hours...\n")
     print("Returning to Menu 2. Please wait...\n")
     menu_two(name_choice)
+
+
+def add_new_hours(worksheet):
+    add_date = str(input('Date: '))
+    add_clockin = str(input('Clock-in: '))
+    add_clockout = str(input('Clock-out: '))
+    addition_data = [add_date, add_clockin, add_clockout]
+
+    worksheet.append_row(addition_data)
+    
+
 
 #Below this comment sits all the validation functions for the above menu functions
 def validate_employee_name(names, choice):
