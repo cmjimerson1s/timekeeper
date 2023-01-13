@@ -143,10 +143,17 @@ def menu_selector(name_choice, main_menu_choice):
         menu_two(name_choice)
 
 def get_edit_row(row_choice, sheet_choice):
-    print(row_choice)
-    print(sheet_choice)
+    row_updated = str(row_choice)
+    
+    new_date = str(input("Enter Date: "))
+    new_clockin = str(input("Enter Clock-in: "))
+    new_clockout = str(input("Enter Clock-out: "))
+
+    sheet_choice.update(f'A{row_updated}', new_clockout)
 
 
+# def update_cells_hours(date, clockin, clockou, row, sheet):
+#     sheet.update(f'A{row_updated}
 
 
 
