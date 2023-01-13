@@ -137,6 +137,22 @@ def menu_three(name_choice):
     
 
 
+def menu_four(name_choice):
+    print('This is mene four')
+    names = SHEET.get_worksheet(0)
+    data = names.col_values(1)
+    x = data.index(name_choice)
+    hours = SHEET.get_worksheet(x)
+    clockin_list = hours.col_values(2)
+    clockin_list.pop(0)
+    clockout_list = hours.col_values(3)
+    clockout_list.pop(0)
+    print(clockin_list)
+    print(clockout_list)
+
+    # salary_list = []
+    # for start, end in zip(clockin_list, clockout_list):
+    #     # salary_calc = int(end) - int(start)
 
 
 
