@@ -121,9 +121,6 @@ def menu_two(name_choice):
 def menu_three(name_choice):
     print("This is menu three")
 
-def menu_four(name_choice):
-    print("This is menu four")
-
 
 def menu_selector(name_choice, main_menu_choice):
     """
@@ -136,7 +133,7 @@ def menu_selector(name_choice, main_menu_choice):
     elif main_menu_choice == "3":
         menu_three(name_choice)
     elif main_menu_choice == "4":
-        menu_four
+        start_program()
 
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
