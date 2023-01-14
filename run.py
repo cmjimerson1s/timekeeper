@@ -137,7 +137,6 @@ def menu_three(name_choice):
     add_new_hours(hours)
     
 
-
 def menu_four(name_choice):
     monthly_total = []
     print('This is mene four')
@@ -149,11 +148,12 @@ def menu_four(name_choice):
     clockin_list.pop(0)
     clockout_list = hours.col_values(3)
     clockout_list.pop(0)
-    list_data = hour_combine(clockin_list, clockout_list, monthly_total)
+    list_data = hour_combine(clockin_list, clockout_list)
     final_total = run_this(list_data, monthly_total)
     print(f"{name_choice}'s total hours are: {final_total}")
-    
 
+
+# Below this comment are the main functions called in the menus above
 def menu_selector(name_choice, main_menu_choice):
     """
     Runs to direct user towards the apporiate menu of their selection
@@ -171,6 +171,9 @@ def menu_selector(name_choice, main_menu_choice):
 
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
+    """
+    This collects the selected row to be edited by the user
+    """
     row_updated = str(row_choice)
     new_date = str(input("Enter Date: "))
     new_clockin = str(input("Enter Clock-in: "))
@@ -180,6 +183,10 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
 
 
 def update_cells_hours(date, clockin, clockout, row, sheet, name_choice):
+    """
+    This function updates the individual cells of the row
+    that as been selected to be edited by the user
+    """
     sheet.update(f'A{row}', date)
     sheet.update(f'B{row}', clockin)
     sheet.update(f'C{row}', clockout)
@@ -189,6 +196,11 @@ def update_cells_hours(date, clockin, clockout, row, sheet, name_choice):
 
 
 def add_new_hours(worksheet):
+    """
+    This asks the user to provide the new date, clock-in
+    and clock-out that they wish to add to the selected users
+    list
+    """
     add_date = str(input('Date: '))
     add_clockin = str(input('Clock-in: '))
     add_clockout = str(input('Clock-out: '))
@@ -197,7 +209,7 @@ def add_new_hours(worksheet):
     worksheet.append_row(addition_data)
 
 
-def hour_combine(clockin, clockout, monthly_total):
+def hour_combine(clockin, clockout):
     """
     Combines the two collected lists from menu_four into one list
     """
