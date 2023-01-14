@@ -139,6 +139,7 @@ def menu_three(name_choice):
 
 
 def menu_four(name_choice):
+    monthly_total = []
     print('This is mene four')
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
@@ -148,8 +149,8 @@ def menu_four(name_choice):
     clockin_list.pop(0)
     clockout_list = hours.col_values(3)
     clockout_list.pop(0)
-    hour_combine(clockin_list, clockout_list, monthly_total)
-
+    list_data = hour_combine(clockin_list, clockout_list, monthly_total)
+    
 
 def menu_selector(name_choice, main_menu_choice):
     """
@@ -195,6 +196,9 @@ def add_new_hours(worksheet):
 
 
 def hour_combine(clockin, clockout, monthly_total):
+    """
+    Combines the two collected lists from menu_four into one list
+    """
     list_one = clockin
     list_two = clockout
     combo_list = []
@@ -205,6 +209,44 @@ def hour_combine(clockin, clockout, monthly_total):
     
 
     return combo_list
+
+# Below this line is the subfunction, and all related functions, to calculate the monthly hours
+def loop_split(combo_list, round, monthly_total):
+    list_sep = combo_list[round].split(',')
+    start_sep = list_sep[0]
+    end_sep = list_sep[1]
+
+    return start_sep, end_sep, monthly_total
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def run_this(list_data, monthly_total):
+    """
+    This is a subfunction that runs a loop through the combined hours list to calculate the total hours worked for the month 
+    """
+    rotation = -1
+    for pair in list_data:
+        rotation += 1
+        res_one, res_two, res_three = loop_split(list_data, rotation, monthly_total)
+        res_four, res_five, res_six, res_seven, res_eight = time_transform(res_one, res_two, res_three)
+        time_calculation(res_four, res_five, res_six, res_seven, res_eight)    
+    print(sum(monthly_total))
 
 
 
