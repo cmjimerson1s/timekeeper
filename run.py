@@ -148,7 +148,7 @@ def menu_four(name_choice):
     clockin_list.pop(0)
     clockout_list = hours.col_values(3)
     clockout_list.pop(0)
-
+    hour_combine(clockin_list, clockout_list, monthly_total)
 
 
 def menu_selector(name_choice, main_menu_choice):
@@ -192,7 +192,21 @@ def add_new_hours(worksheet):
     addition_data = [add_date, add_clockin, add_clockout]
 
     worksheet.append_row(addition_data)
+
+
+def hour_combine(clockin, clockout, monthly_total):
+    list_one = clockin
+    list_two = clockout
+    combo_list = []
+
+    for first, second in zip(list_one, list_two):
+        math_list = first + ',' + second
+        combo_list.append(math_list)
     
+
+    return combo_list
+
+
 
 
 #Below this comment sits all the validation functions for the above menu functions
