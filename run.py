@@ -241,22 +241,19 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
 
     monthly_total.append(calc_total)
 
+def run_this(list_data, monthly_total):
+    """
+    This is a subfunction that runs a loop through the combined hours list to calculate the total hours worked for the month 
+    """
+    rotation = -1
+    for pair in list_data:
+        rotation += 1
+        res_one, res_two, res_three = loop_split(list_data, rotation, monthly_total)
+        res_four, res_five, res_six, res_seven, res_eight = time_transform(res_one, res_two, res_three)
+        time_calculation(res_four, res_five, res_six, res_seven, res_eight)    
+    final_total = (sum(monthly_total))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return final_total
 
 
 #Below this comment sits all the validation functions for the above menu functions
