@@ -210,6 +210,7 @@ def hour_combine(clockin, clockout, monthly_total):
         combo_list.append(math_list)
     return combo_list
 
+
 # Below this line is the subfunction, and all related functions, to calculate the monthly hours
 def loop_split(combo_list, round, monthly_total):
     """
@@ -239,6 +240,13 @@ def time_transform(start, end, monthly_total):
     return start_hour, start_min, end_hour, end_min, monthly_total
 
 def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
+    """
+    This takes the new intergers of the clockin/out
+    times and calculates the total hours and minutes worked
+    by first calculating the minutes, then the hours, and 
+    finally converts the hours to minutes and then 
+    total minutes back into hours as a decimal, ex: 1.75 etc
+    """
     total_minuts = (end_min - start_min)
     if total_minuts < 0:
         total_minuts  = total_minuts * -1
@@ -248,9 +256,12 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
 
     monthly_total.append(calc_total)
 
+
 def run_this(list_data, monthly_total):
     """
-    This is a subfunction that runs a loop through the combined hours list to calculate the total hours worked for the month 
+    This is the subfunction that runs a loop through the
+    collected and combined hours list (clock-in and clock-out) 
+    to calculate the total hours worked for the month.
     """
     rotation = -1
     for pair in list_data:
@@ -263,7 +274,7 @@ def run_this(list_data, monthly_total):
     return final_total
 
 
-#Below this comment sits all the validation functions for the above menu functions
+# Below this comment sits all the validation functions for the above menu functions
 def validate_employee_name(names, choice):
     """
     Validates that the chosen name by the user matches current employees
