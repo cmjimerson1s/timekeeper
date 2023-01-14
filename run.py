@@ -150,6 +150,8 @@ def menu_four(name_choice):
     clockout_list = hours.col_values(3)
     clockout_list.pop(0)
     list_data = hour_combine(clockin_list, clockout_list, monthly_total)
+    final_total = run_this(list_data, monthly_total)
+    print(f"{name_choice}'s total hours for the month are: {final_total}")
     
 
 def menu_selector(name_choice, main_menu_choice):
