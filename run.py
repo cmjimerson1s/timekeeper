@@ -219,6 +219,17 @@ def loop_split(combo_list, round, monthly_total):
     return start_sep, end_sep, monthly_total
 
 
+def time_transform(start, end, monthly_total):
+    start_sep = start.split(':')
+    start_hour = int(start_sep[0])
+    start_min = int(start_sep[1])
+
+
+    end_sep = end.split(':')
+    end_hour = int(end_sep[0])
+    end_min = int(end_sep[1])
+
+    return start_hour, start_min, end_hour, end_min, monthly_total
 
 
 
@@ -236,17 +247,6 @@ def loop_split(combo_list, round, monthly_total):
 
 
 
-def run_this(list_data, monthly_total):
-    """
-    This is a subfunction that runs a loop through the combined hours list to calculate the total hours worked for the month 
-    """
-    rotation = -1
-    for pair in list_data:
-        rotation += 1
-        res_one, res_two, res_three = loop_split(list_data, rotation, monthly_total)
-        res_four, res_five, res_six, res_seven, res_eight = time_transform(res_one, res_two, res_three)
-        time_calculation(res_four, res_five, res_six, res_seven, res_eight)    
-    print(sum(monthly_total))
 
 
 
