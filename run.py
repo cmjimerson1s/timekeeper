@@ -151,7 +151,7 @@ def menu_four(name_choice):
     clockout_list.pop(0)
     list_data = hour_combine(clockin_list, clockout_list, monthly_total)
     final_total = run_this(list_data, monthly_total)
-    print(f"{name_choice}'s total hours for the month are: {final_total}")
+    print(f"{name_choice}'s total hours are: {final_total}")
     
 
 def menu_selector(name_choice, main_menu_choice):
@@ -208,12 +208,14 @@ def hour_combine(clockin, clockout, monthly_total):
     for first, second in zip(list_one, list_two):
         math_list = first + ',' + second
         combo_list.append(math_list)
-    
-
     return combo_list
 
 # Below this line is the subfunction, and all related functions, to calculate the monthly hours
 def loop_split(combo_list, round, monthly_total):
+    """
+    This takes the list of combined clock-in and clock-outs and 
+    splits them into the start and end time for the pair
+    """
     list_sep = combo_list[round].split(',')
     start_sep = list_sep[0]
     end_sep = list_sep[1]
@@ -222,11 +224,14 @@ def loop_split(combo_list, round, monthly_total):
 
 
 def time_transform(start, end, monthly_total):
+    """
+    This takes the clock-in and clock out strings 
+    and converts the hours and minutes of each
+    into intergers to be used for calculations later
+    """
     start_sep = start.split(':')
     start_hour = int(start_sep[0])
     start_min = int(start_sep[1])
-
-
     end_sep = end.split(':')
     end_hour = int(end_sep[0])
     end_min = int(end_sep[1])
