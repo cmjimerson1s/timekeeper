@@ -231,7 +231,15 @@ def time_transform(start, end, monthly_total):
 
     return start_hour, start_min, end_hour, end_min, monthly_total
 
+def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
+    total_minuts = (end_min - start_min)
+    if total_minuts < 0:
+        total_minuts  = total_minuts * -1
+    total_hours = end_hour - start_hour
+    calc_comb = (total_hours * 60) + total_minuts
+    calc_total = calc_comb / 60
 
+    monthly_total.append(calc_total)
 
 
 
