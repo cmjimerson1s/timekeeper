@@ -179,6 +179,18 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
     and once passed validation calls the function to update the cells
     """
     row_updated = str(row_choice)
+    while True:
+        new_date = str(input("Enter Date: \n"))
+        if validate_date(new_date):
+            break
+    while True:
+        new_clockin = str(input("Enter Clock-in: \n"))       
+        if validate_time(new_clockin):
+            break
+    while True:
+        new_clockout = str(input("Enter Clock-out: \n"))
+        if validate_time(new_clockout):
+            break
 
     update_cells_hours(new_date, new_clockin, new_clockout, row_updated, sheet_choice, name_choice)
 
