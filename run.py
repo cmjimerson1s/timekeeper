@@ -107,7 +107,9 @@ def menu_two(name_choice):
         data = names.col_values(1)
         x = data.index(name_choice)
         hours = SHEET.get_worksheet(x)
-        info = pd.DataFrame(hours.get_all_records())   
+        record_set = hours.get_all_records()
+        new_list = sorted(record_set, key=lambda d: d['Date'])
+        info = pd.DataFrame(new_list)   
         list_length = hours.get_all_values()
         print(info)
 
