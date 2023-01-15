@@ -228,7 +228,7 @@ def add_new_hours(worksheet, name_choice):
     while True:
         add_clockout = str(input('Clock-out: \n'))
         if validate_time(add_clockout):
-            break
+
     addition_data = [add_date, add_clockin, add_clockout]
     worksheet.append_row(addition_data)
     print('Updating sheet...\n')
@@ -385,6 +385,11 @@ def validate_time(time):
     except ValueError as e:
         print(f'Invalid data: {e} please use ##:##')
 
+def end_time_validation(start, end):
+    if end > start:
+        return True
+    else:
+        return False
 
 
 
