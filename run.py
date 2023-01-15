@@ -49,6 +49,7 @@ def landing():
             given_passwrd = input(Fore.BLUE + '      Password: \n')
     sleep(2)
     clear()
+    start_program()
 
 
 def start_program():
@@ -125,7 +126,7 @@ def menu_one(name_choice):
         while True:
             # This provides the return to the main menu function, 
             # still passing the initial chosen employee name
-            main_menu_return = input('Press Enter to return to Main Menu: \n')
+            main_menu_return = input(Fore.GREEN + 'Press Enter to return to Main Menu: \n')
             if not main_menu_return:
                 clear()
                 main_menu(name_choice)
@@ -140,7 +141,7 @@ def menu_two(name_choice):
     """
     while True:
         print(f"Menu 2: Currently viewing {name_choice}'s Hours\n")
-        print("To return to main menu, enter text 'Return'.")
+        print(Fore.GREEN + "To return to main menu, enter text 'Return'.")
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
         x = data.index(name_choice)
@@ -154,7 +155,7 @@ def menu_two(name_choice):
             # This validates the input, ensureing inability to enter a blank input
             string_edit_choice = str(input('What entry would you like to edit(Use number in far left column): \n'))
             if not string_edit_choice:
-                print('Please enter valid menu number.')
+                print(Fore.RED + 'Please enter valid menu number.')
             elif string_edit_choice == "Return":
                 sleep(1)
                 clear()
@@ -165,7 +166,10 @@ def menu_two(name_choice):
         if validate_menue_two_edit_choice(string_edit_choice, list_length):
             edit_choice = (int(string_edit_choice))+2
             display_choice = hours.row_values(edit_choice)
-            print(display_choice)
+            sleep(2)
+            clear()
+            print(Fore.GREEN + f"Entry to edit {display_choice}\n")
+            print('Format: \nDate = YYYY-MM-DD \nClock-in/out(24 hour) = HH:MM\n')
             get_edit_row(edit_choice, hours, name_choice)
 
 
@@ -176,7 +180,7 @@ def menu_three(name_choice):
     hours = SHEET.get_worksheet(x)
 
     print('Please enter the date, clock-in, and clock-out you would like to add. \n')
-    print('Format: Date = YYYY-MM-DD')
+    print('Format: \nDate = YYYY-MM-DD \nClock-in/out(24 hour) = HH:MM')
     add_new_hours(hours, name_choice)
 
 
@@ -192,7 +196,10 @@ def menu_four(name_choice):
     clockout_list.pop(0)
     list_data = hour_combine(clockin_list, clockout_list)
     final_total = run_this(list_data, monthly_total)
-    print(f"{name_choice}'s total hours are: {final_total}")
+    print(Fore.GREEN + f"{name_choice}'s total hours are: {final_total}")
+    sleep(5)
+    clear()
+    main_menu(name_choice)
 
 
 # Below this comment are the main functions called in the menus above
@@ -241,7 +248,11 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
     while True:
         new_clockout = str(input("Enter Clock-out: \n"))
         if validate_time(new_clockout):
-            break
+            t_1, t_2, t_3, t_4, t_5 = time_transform(new_clockin, new_clockout, 0)
+            t_6, t_7 = end_time_calculation(t_1, t_2, t_3, t_4, t_5)
+            clockout_valid = end_time_validation(t_6, t_7)
+            if clockout_valid:
+                break
 
     update_cells_hours(new_date, new_clockin, new_clockout, row_updated, sheet_choice, name_choice)
 
@@ -254,8 +265,10 @@ def update_cells_hours(date, clockin, clockout, row, sheet, name_choice):
     sheet.update(f'A{row}', date)
     sheet.update(f'B{row}', clockin)
     sheet.update(f'C{row}', clockout)
-    print("Updating date and hours...\n")
-    print("Returning to Menu 2. Please wait...\n")
+    print(Fore.GREEN + "Updating date and hours...\n")
+    print(Fore.GREEN + "Returning to Menu 2. Please wait...\n")
+    sleep(3)
+    clear()
     menu_two(name_choice)
 
 
@@ -284,8 +297,10 @@ def add_new_hours(worksheet, name_choice):
                 break
     addition_data = [add_date, add_clockin, add_clockout]
     worksheet.append_row(addition_data)
-    print('Updating sheet...\n')
-    print('New data successfully added, returning to main menu\n')
+    print(Fore.GREEN + 'Updating sheet...\n')
+    print(Fore.GREEN + 'New data successfully added, returning to main menu\n')
+    sleep(3)
+    clear()
     main_menu(name_choice)
 
 
@@ -386,7 +401,7 @@ def run_this(list_data, monthly_total):
     """
     This is the subfunction that runs a loop through the
     collected and combined hours list (clock-in and clock-out) 
-    to calculate the total hours worked for the month.
+    to calculate the total hours of selected employee.
     """
     rotation = -1
     for pair in list_data:
@@ -406,10 +421,10 @@ def validate_employee_name(names, choice):
     Validates that the chosen name by the user matches current employees
     """
     if choice in names:
-        print("Input Accepted.\n")
+        print(Fore.GREEN + "Input Accepted.\n")
         return True
     else:
-        print("Invalid Name. Please try again \n")
+        print(Fore.RED + "Invalid Name. Please try again \n")
 
 
 def validate_menu_num(menu, choice):
@@ -417,9 +432,9 @@ def validate_menu_num(menu, choice):
     Validates that the chosen menu number by the user matches current menu
     """
     if choice in menu:
-        print("Valid Menu Selection.\n")    
+        print(Fore.GREEN + "Valid Menu Selection.\n")    
     else:
-        print('Invalid Menu Selection. Please try again.\n')
+        print(Fore.RED + 'Invalid Menu Selection. Please try again.\n')
 
         return False
   
@@ -436,12 +451,12 @@ def validate_menue_two_edit_choice(edit_choice, list_of_hours):
     try:
         choice_check = (int(edit_choice) + 1)
         if choice_check < len(list_of_hours):
-            print("Valid entry")
+            print(Fore.GREEN + "Valid entry")
         else:
-            print("Invalid entry. Try again.")
+            print(Fore.RED + "Invalid entry. Try again.")
             return False
     except ValueError as e:
-        print(f'Invalid data: {e} Please use numerals 0 - 9.')
+        print(Fore.RED + f'Invalid data: {e} Please use numerals 0 - 9.')
         return False
     return True
 
@@ -453,9 +468,10 @@ def validate_date(date):
     """
     try:
         dateObject = datetime.strptime(date, '%Y-%m-%d')
+        print(Fore.GREEN + 'Input Accepted')
         return True
     except ValueError as e:
-        print(f"Error: {e}")
+        print(Fore.RED + f"Error: {e}")
         return False
 
 
@@ -467,13 +483,13 @@ def validate_time(time):
     pattern = re.compile("\d\d:\d\d")
     try:
         if re.match(pattern, time):
-            print('Match')
+            print(Fore.GREEN + 'Input Accepted')
             return True
         else:
-            print('No Match')
+            print(Fore.RED + 'Invalid Time. Please try again.')
             return False
     except ValueError as e:
-        print(f'Invalid data: {e}')
+        print(Fore.RED + f'Invalid data: {e}')
 
 
 def end_time_validation(start, end):
@@ -488,7 +504,7 @@ def end_time_validation(start, end):
         else:
             return False
     except ValueError as e:
-        print(f'Invalid data: {e}')
+        print(Fore.RED + f'Invalid data: {e}')
 
 
 
@@ -497,7 +513,7 @@ def end_time_validation(start, end):
 
 
 landing()
-start_program()
+
 
 
 
