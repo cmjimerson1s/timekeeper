@@ -21,6 +21,15 @@ NAMES = SHEET.get_worksheet(0)
 
 
 def landing():
+    """
+    This is the starting page of the programm,
+    gretting the user and asking them to log-in.
+    For testing purposes, we only have one
+    username, and password available. They are as follows:
+    username = Admin
+    password = letMein
+    These are case sensitive
+    """
     username = 'Admin'
     passwrd = 'letMein'
     print(Fore.BLUE + 'Welcome to the software\n')
