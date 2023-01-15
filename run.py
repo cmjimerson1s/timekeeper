@@ -386,11 +386,9 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     finally converts the hours to minutes and then
     total minutes back into hours as a decimal, ex: 1.75 etc
     """
-    total_minuts = (end_min - start_min)
-    if total_minuts < 0:
-        total_minuts = total_minuts * -1
-    total_hours = end_hour - start_hour
-    calc_comb = (total_hours * 60) + total_minuts
+    total_minutes = (end_min - start_min)
+    total_hours = (end_hour - start_hour)
+    calc_comb = (total_hours * 60) + total_minutes
     calc_total = calc_comb / 60
 
     monthly_total.append(calc_total)
