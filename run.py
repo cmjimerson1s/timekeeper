@@ -283,7 +283,7 @@ def run_this(list_data, monthly_total):
 
 
 # Below this comment sits all the validation 
-# functions for the above menu functions
+# functions for the above menu functionss
 def validate_employee_name(names, choice):
     """
     Validates that the chosen name by the user matches current employees
