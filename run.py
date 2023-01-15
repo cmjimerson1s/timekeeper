@@ -31,22 +31,20 @@ def start_program():
         print('Please note, your choice is case sensitive.\n')
 
         while True:
-            # This validates the input, ensureing inability to enter a blank input
+            # Validates the input, ensureing inability to enter a blank input
             name_choice = input('Employee: \n')
             if not name_choice:
                 print('Error: Please enter valid name.\n')
             else:
                 break
-        
-        
         if validate_employee_name(data, name_choice):
             main_menu(name_choice)
-        
 
 
 def main_menu(name_choice):
     """
-    Initializes the main menu for the user to choose what to do with selected employee
+    Initializes the main menu for the user to 
+    choose what to do with selected employee
     """
     while True:
         menu_options = ['1', '2', '3', '4', '5']
@@ -57,15 +55,15 @@ def main_menu(name_choice):
         print(f"3. Add Entry to {name_choice}'s Hours\n")
         print(f"4. Calculate {name_choice}'s Current Total Hours\n")
         print("5. Return to Employee Select\n")
-        
+
         while True:
-            # This validates the input, ensureing inability to enter a blank input
+        # This validates the input, ensureing inability to enter blank input
             main_menu_choice = input("Menu Number: \n")
             if not main_menu_choice:
                 print('Please enter valid menu number.')
             else:
                 break
-        
+
         if validate_menu_num(menu_options, main_menu_choice):
             menu_selector(name_choice, main_menu_choice)
             break
@@ -73,7 +71,8 @@ def main_menu(name_choice):
 
 def menu_one(name_choice):
     """
-    Collects and displays all of the current time keeping data for selected employee
+    Collects and displays all of the current time keeping data 
+    for selected employee
     """
     while True:
         print(f"Menu 1: Currently viewing {name_choice}'s Hours \n")
@@ -87,7 +86,8 @@ def menu_one(name_choice):
         print(info)
 
         while True:
-            # This provides the return to the main menu function, still passing the initial chosen employee name
+            # This provides the return to the main menu function, 
+            # still passing the initial chosen employee name
             main_menu_return = input('Press Enter to return to Main Menu: \n')
             if not main_menu_return:
                 main_menu(name_choice)
@@ -102,7 +102,7 @@ def menu_two(name_choice):
     """
     while True:
         print(f"Menu 2: Currently viewing {name_choice}'s Hours\n")
-        print("To return to main menu, enter 'Return'.")
+        print("To return to main menu, enter text 'Return'.")
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
         x = data.index(name_choice)
@@ -129,8 +129,6 @@ def menu_two(name_choice):
             get_edit_row(edit_choice, hours, name_choice)
 
 
-
-
 def menu_three(name_choice):
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
@@ -140,7 +138,7 @@ def menu_three(name_choice):
     print('Please enter the date, clock-in, and clock-out you would like to add. \n')
     print('Format: Date = YYYY-MM-DD')
     add_new_hours(hours, name_choice)
-    
+
 
 def menu_four(name_choice):
     monthly_total = []
@@ -254,6 +252,16 @@ def hour_combine(clockin, clockout):
     return combo_list
 
 def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
+    """
+    This function collects the entered times, clock in 
+    and clock out, and calculates the numbers into a numerical
+    value by taking the total number of hours, multiplying
+    by 60, and adding that value together with the number of mintues. 
+    This gives two numbers to later compare.
+    Example: 15:30, first the hour, 15, is multiplied by 60, resulting
+    in a value of 900, and the minutes, 30, are added together
+    for a total of 930.
+    """
     cacl_start = start_hour*60
     cacl_start_min = start_min
     total_start = cacl_start+cacl_start_min
@@ -293,6 +301,7 @@ def time_transform(start, end, monthly_total):
 
     return start_hour, start_min, end_hour, end_min, monthly_total
 
+
 def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     """
     This takes the new intergers of the clockin/out
@@ -328,7 +337,7 @@ def run_this(list_data, monthly_total):
     return final_total
 
 
-# Below this comment sits all the validation 
+# Below this comment sits all the validation
 # functions for the above menu functionss
 def validate_employee_name(names, choice):
     """
@@ -351,10 +360,17 @@ def validate_menu_num(menu, choice):
         print('Invalid Menu Selection. Please try again.\n')
 
         return False
-    
+  
     return True
 
+
 def validate_menue_two_edit_choice(edit_choice, list_of_hours):
+    """
+    This validates that the user has chosen
+    a listed row available to edit, and if not, informs them to 
+    of their error, also alerting if they use a value that cannot
+    be converted into an int
+    """
     try:
         choice_check = (int(edit_choice) + 1)
         if choice_check < len(list_of_hours):
@@ -369,6 +385,10 @@ def validate_menue_two_edit_choice(edit_choice, list_of_hours):
 
 
 def validate_date(date):
+    """
+    This confirms that the date entered conforms
+    to the format of YYYY-MM-DD
+    """
     try:
         dateObject = datetime.strptime(date, '%Y-%m-%d')
         return True
@@ -378,6 +398,10 @@ def validate_date(date):
 
 
 def validate_time(time):
+    """
+    This confirms that the time entered conforms
+    to the format of HH:MM
+    """
     pattern = re.compile("\d\d:\d\d")
     try:
         if re.match(pattern, time):
@@ -389,7 +413,13 @@ def validate_time(time):
     except ValueError as e:
         print(f'Invalid data: {e}')
 
+
 def end_time_validation(start, end):
+    """
+    This checks that the clock-out time, 
+    or end, is larger than the clock-in time, 
+    or start. 
+    """
     try:
         if end > start:
             return True
