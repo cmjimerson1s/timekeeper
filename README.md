@@ -1,31 +1,438 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome cmjimerson1s,
+## About
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
-## Reminders
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Table of Contents
+  - [Project Goals](#project-goals)
+    - [User Goals](#user-goals)
+    - [Site Owner Goals](#site-owner-goals)
+  - [User Experience](#user-experience)
+    - [Target Audience](#target-audience)
+    - [User Requirements and Expectations](#user-requirements-and-expectations)
+    - [User Manual](#user-manual)
+  - [User Stories](#user-stories)
+    - [Users](#users)
+    - [Site Owner](#site-owner)
+  - [Technical Design](#technical-design)
+    - [Flowchart](#flowchart)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Frameworks & Tools](#frameworks--tools)
+    - [Libraries](#libraries)
+  - [Features](#features)
+  - [Validation](#validation)
+  - [Testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [Automated Testing](#automated-testing)
+  - [Bugs](#bugs)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
+  - [Acknowledgements](#acknowledgements)
 
-## Creating the Heroku app
+## Project Goals
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### User Goals
 
-1. `heroku/python`
-2. `heroku/nodejs`
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+### Site Owner Goals
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+## User Experience
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+### Target Audience
 
------
-Happy coding!
+
+
+### User Requirements and Expectations
+
+
+### User Manual
+
+<
+
+#### Landing-Authentication
+
+
+#### Employee Select
+
+#### Main Menu
+
+
+#### Menu One
+
+
+#### Menu Two
+
+
+#### Menu Three
+
+
+#### Menu Four
+
+
+#### Menu Five
+
+
+[Back to Table Of Contents](#table-of-contents)
+
+## User Stories
+
+### Users
+
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+
+### Site Owner
+
+10. 
+11. 
+12. 
+13. 
+14. 
+
+[Back to Table Of Contents](#table-of-contents)
+
+## Technical Design
+
+### Flowchart
+
+
+
+
+## Technologies Used
+
+### Languages
+
+- [Python](https://www.python.org/) programming language for the logic of the program
+
+### Frameworks & Tools
+- [Git](https://git-scm.com/) was used for version control within VSCode to push the code to GitHub
+- [GitHub](https://github.com/) was used as a remote repository to store project code
+- [Google Cloud Platform](https://cloud.google.com/cloud-console/) was used to manage access and permissions to the Google Services such as Google auth, sheets etc.
+- [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store players details
+- [PEP8](http://pep8online.com/) was used to check my code against Python conventions
+
+
+### Libraries
+
+#### Python Libraries
+
+
+#### Third Party Libraries
+
+
+[Back to Table Of Contents](#table-of-contents)
+
+## Features
+
+### Landing-Authentication
+
+
+<details>
+    <summary></summary>
+
+![Landing-Authentication](img_directory_here)
+</details>
+
+### Employee Select
+
+<details>
+    <summary</summary>
+
+![Employee Select](dimg_directory_here)
+</details>
+
+### Main Menu
+
+<details>
+    <summary></summary>
+
+![Main Menu](img_directory_here)
+</details>
+
+### Menu One
+
+
+<details>
+    <summary></summary>
+
+![Menu One](img_directory_here)
+</details>
+
+
+### Menu Two
+
+<details>
+    <summary></summary>
+
+![Menu Two](img_directory_here)
+</details>
+
+
+### Menu Three
+
+<details>
+    <summary></summary>
+
+![Menu Three](img_directory_here)
+</details>
+
+### Menu Four
+
+<details>
+    <summary></summary>
+
+![Menu Four](img_directory_here)
+</details>
+
+### Menu Five
+
+<details>
+    <summary></summary>
+
+![Menu Five](img_directory_here)
+</details>
+
+
+
+### User Input Validation
+
+<details>
+    <summary></summary>
+
+![ ](img_directory_here)
+</details>
+
+<details>
+    <summary></summary>
+
+![ ](img_directory_here)
+</details>
+
+<details>
+    <summary></summary>
+
+![ ]((img_directory_here)
+</details>
+
+[Back to Table Of Contents](img_directory_here)
+
+## Validation
+
+[PEP8 Validation Service](https://pep8ci.herokuapp.com//) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
+
+<details><summary>PEP8 Heroku App check for run.py</summary>
+<img src="">
+</details>
+
+
+## Testing
+
+The testing approach for this code was primarily manual testing of user stories
+
+
+### Manual Testing
+<details><summary></summary>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+Number. 
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+|  | | | |
+|  | | | |
+
+<details><summary>Screenshot</summary>
+<img src="">
+</details>
+
+
+[Back to Table Of Contents](#table-of-contents)
+## Bugs
+
+
+
+## Deployment
+
+
+
+
+
+
+
+### Forking the GitHub Repository
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+   
+### Making a Local Clone
+1. Go to the GitHub repository 
+2. Locate the Code button above the list of files and click it
+3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7. Press Enter to create your local clone
+
+[Back to Table Of Contents](#table-of-contents)
+
+## Credits
+
+### Images
+
+
+### Code
+
+
+## Acknowledgements
