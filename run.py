@@ -108,8 +108,7 @@ def menu_two(name_choice):
         x = data.index(name_choice)
         hours = SHEET.get_worksheet(x)
         record_set = hours.get_all_records()
-        new_list = sorted(record_set, key=lambda d: d['Date'])
-        info = pd.DataFrame(new_list)   
+        info = pd.DataFrame(record_set)  
         list_length = hours.get_all_values()
         print(info)
 
@@ -250,18 +249,19 @@ def hour_combine(clockin, clockout):
         combo_list.append(math_list)
     return combo_list
 
-def dict_list_convert(input_list):
-    result = []
-    for ids, datas in enumerate(new_list, start = 0):
-        if ids == 0:
-            result.append(list(datas.keys()))
-            result.append(list(datas.values()))
-        else:
-            result.append(list(datas.values()))
-    
-    return result
+def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
+    cacl_start = start_hour*60
+    cacl_start_min = start_min
+    total_start = cacl_start+cacl_start_min
 
-# Below this line is the subfunction, and all related functions, to calculate the monthly hours
+    calc_end = end_hour*60
+    calc_end_min = end_min
+    total_end = calc_end+calc_end_min
+
+    return total_start, total_end, monthly_total
+
+
+# Below this line is the subfunction, and all related functions, to calculate the total hours
 def loop_split(combo_list, round, monthly_total):
     """
     This takes the list of combined clock-in and clock-outs and 
