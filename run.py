@@ -79,7 +79,7 @@ def start_program():
 
 def main_menu(name_choice):
     """
-    Initializes the main menu for the user to 
+    Initializes the main menu for the user to
     choose what to do with selected employee
     """
     while True:
@@ -107,7 +107,7 @@ def main_menu(name_choice):
 
 def menu_one(name_choice):
     """
-    Collects and displays all of the current time keeping data 
+    Collects and displays all of the current time keeping data
     for selected employee
     """
     clear()
@@ -123,7 +123,7 @@ def menu_one(name_choice):
         print(info)
 
         while True:
-            # This provides the return to the main menu function, 
+            # This provides the return to the main menu function,
             # still passing the initial chosen employee name
             main_menu_return = input(Fore.GREEN + 'Press Enter to return to Main Menu: \n')
             if not main_menu_return:
@@ -146,7 +146,7 @@ def menu_two(name_choice):
         x = data.index(name_choice)
         hours = SHEET.get_worksheet(x)
         record_set = hours.get_all_records()
-        info = pd.DataFrame(record_set)  
+        info = pd.DataFrame(record_set)
         list_length = hours.get_all_values()
         print(info)
 
@@ -230,7 +230,7 @@ def menu_selector(name_choice, main_menu_choice):
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
     """
-    This collects the selected row to be edited by the user and 
+    This collects the selected row to be edited by the user and
     validates the new input date, and clock in and out times
     and once passed validation calls the function to update the cells
     """
@@ -240,7 +240,7 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
         if validate_date(new_date):
             break
     while True:
-        new_clockin = str(input("Enter Clock-in: \n"))       
+        new_clockin = str(input("Enter Clock-in: \n"))
         if validate_time(new_clockin):
             break
     while True:
@@ -275,7 +275,7 @@ def add_new_hours(worksheet, name_choice):
     """
     This asks the user to provide the new date, clock-in
     and clock-out that they wish to add to the selected users
-    list and validates the new entries before updating the sheet by 
+    list and validates the new entries before updating the sheet by
     adding the data to a new row at the bottom of the spreadsheet
     """
     while True:
@@ -319,10 +319,10 @@ def hour_combine(clockin, clockout):
 
 def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     """
-    This function collects the entered times, clock in 
+    This function collects the entered times, clock in
     and clock out, and calculates the numbers into a numerical
     value by taking the total number of hours, multiplying
-    by 60, and adding that value together with the number of mintues. 
+    by 60, and adding that value together with the number of mintues.
     This gives two numbers to later compare.
     Example: 15:30, first the hour, 15, is multiplied by 60, resulting
     in a value of 900, and the minutes, 30, are added together
@@ -352,7 +352,7 @@ def clear():
 # Below this line is the subfunction, and all related functions, to calculate the total hours
 def loop_split(combo_list, round, monthly_total):
     """
-    This takes the list of combined clock-in and clock-outs and 
+    This takes the list of combined clock-in and clock-outs and
     splits them into the start and end time for the pair
     """
     list_sep = combo_list[round].split(',')
@@ -364,7 +364,7 @@ def loop_split(combo_list, round, monthly_total):
 
 def time_transform(start, end, monthly_total):
     """
-    This takes the clock-in and clock out strings 
+    This takes the clock-in and clock out strings
     and converts the hours and minutes of each
     into intergers to be used for calculations later
     """
@@ -382,8 +382,8 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     """
     This takes the new intergers of the clockin/out
     times and calculates the total hours and minutes worked
-    by first calculating the minutes, then the hours, and 
-    finally converts the hours to minutes and then 
+    by first calculating the minutes, then the hours, and
+    finally converts the hours to minutes and then
     total minutes back into hours as a decimal, ex: 1.75 etc
     """
     total_minuts = (end_min - start_min)
@@ -399,7 +399,7 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
 def run_this(list_data, monthly_total):
     """
     This is the subfunction that runs a loop through the
-    collected and combined hours list (clock-in and clock-out) 
+    collected and combined hours list (clock-in and clock-out)
     to calculate the total hours of selected employee.
     """
     rotation = -1
@@ -407,7 +407,7 @@ def run_this(list_data, monthly_total):
         rotation += 1
         res_one, res_two, res_three = loop_split(list_data, rotation, monthly_total)
         res_four, res_five, res_six, res_seven, res_eight = time_transform(res_one, res_two, res_three)
-        time_calculation(res_four, res_five, res_six, res_seven, res_eight)    
+        time_calculation(res_four, res_five, res_six, res_seven, res_eight)
     final_total = (sum(monthly_total))
 
     return final_total
@@ -431,7 +431,7 @@ def validate_menu_num(menu, choice):
     Validates that the chosen menu number by the user matches current menu
     """
     if choice in menu:
-        print(Fore.GREEN + "Valid Menu Selection.\n")    
+        print(Fore.GREEN + "Valid Menu Selection.\n")
     else:
         print(Fore.RED + 'Invalid Menu Selection. Please try again.\n')
 
@@ -443,7 +443,7 @@ def validate_menu_num(menu, choice):
 def validate_menue_two_edit_choice(edit_choice, list_of_hours):
     """
     This validates that the user has chosen
-    a listed row available to edit, and if not, informs them to 
+    a listed row available to edit, and if not, informs them to
     of their error, also alerting if they use a value that cannot
     be converted into an int
     """
@@ -493,9 +493,9 @@ def validate_time(time):
 
 def end_time_validation(start, end):
     """
-    This checks that the clock-out time, 
-    or end, is larger than the clock-in time, 
-    or start. 
+    This checks that the clock-out time,
+    or end, is larger than the clock-in time,
+    or start.
     """
     try:
         if end > start:
