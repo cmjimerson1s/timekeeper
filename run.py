@@ -203,6 +203,23 @@ def add_new_hours(worksheet, name_choice):
     list and validates the new entries before updating the sheet by 
     adding the data to a new row at the bottom of the spreadsheet
     """
+    while True:
+        add_date = str(input('Date: \n'))
+        if validate_date(add_date):
+            break
+    while True:
+        add_clockin = str(input('Clock-in: \n'))
+        if validate_time(add_clockin):
+            break
+    while True:
+        add_clockout = str(input('Clock-out: \n'))
+        if validate_time(add_clockout):
+            break
+    addition_data = [add_date, add_clockin, add_clockout]
+    worksheet.append_row(addition_data)
+    print('Updating sheet...\n')
+    print('New data successfully added, returning to main menu\n')
+    main_menu(name_choice)
 
 
 def hour_combine(clockin, clockout):
