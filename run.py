@@ -331,6 +331,17 @@ def validate_date(date):
         return False
 
 
+def validate_time(time):
+    pattern = re.compile("\d\d:\d\d")
+    try:
+        if re.match(pattern, time):
+            print('Match')
+            return True
+        else:
+            print('No Match')
+            return False
+    except ValueError as e:
+        print(f'Invalid data: {e} please use ##:##')
 
 
 
