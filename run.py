@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
 from datetime import datetime
+import re
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -23,9 +24,10 @@ def start_program():
     while True:
         names = SHEET.get_worksheet(0)
         data = names.col_values(1)
-        list = ", ".join(data)
+        data.pop(0)
+        name_list = ", ".join(data)
         print('Please choose the employee whose working hours you wish to view.')
-        print(f'Current employees are {list}.')
+        print(f'Current employees are {name_list}.')
         print('Please note, your choice is case sensitive.')
 
         while True:
@@ -35,10 +37,11 @@ def start_program():
                 print('Please enter valid name.')
             else:
                 break
-            
-        if validate_employee_name(list, name_choice):
+        
+        
+        if validate_employee_name(data, name_choice):
             main_menu(name_choice)
-            break
+        
 
 
 def main_menu(name_choice):
@@ -62,7 +65,7 @@ def main_menu(name_choice):
                 print('Please enter valid menu number.')
             else:
                 break
-
+        
         if validate_menu_num(menu_options, main_menu_choice):
             menu_selector(name_choice, main_menu_choice)
             break
@@ -134,12 +137,11 @@ def menu_three(name_choice):
     hours = SHEET.get_worksheet(x)
 
     print('Please enter the date, clock-in, and clock-out you would like to add. \n')
-    add_new_hours(hours)
+    add_new_hours(hours, name_choice)
     
 
 def menu_four(name_choice):
     monthly_total = []
-    print('This is mene four')
     names = SHEET.get_worksheet(0)
     data = names.col_values(1)
     x = data.index(name_choice)
@@ -172,12 +174,11 @@ def menu_selector(name_choice, main_menu_choice):
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
     """
-    This collects the selected row to be edited by the user
+    This collects the selected row to be edited by the user and 
+    validates the new input date, and clock in and out times
+    and once passed validation calls the function to update the cells
     """
     row_updated = str(row_choice)
-    new_date = str(input("Enter Date: \n"))
-    new_clockin = str(input("Enter Clock-in: \n"))
-    new_clockout = str(input("Enter Clock-out: \n"))
 
     update_cells_hours(new_date, new_clockin, new_clockout, row_updated, sheet_choice, name_choice)
 
@@ -195,19 +196,13 @@ def update_cells_hours(date, clockin, clockout, row, sheet, name_choice):
     menu_two(name_choice)
 
 
-def add_new_hours(worksheet):
+def add_new_hours(worksheet, name_choice):
     """
     This asks the user to provide the new date, clock-in
     and clock-out that they wish to add to the selected users
-    list
+    list and validates the new entries before updating the sheet by 
+    adding the data to a new row at the bottom of the spreadsheet
     """
-    add_date = str(input('Date: \n'))
-    if validate_date(add_date):
-        add_clockin = str(input('Clock-in: \n'))
-        add_clockout = str(input('Clock-out: \n'))
-        addition_data = [add_date, add_clockin, add_clockout]
-
-        worksheet.append_row(addition_data)
 
 
 def hour_combine(clockin, clockout):
@@ -294,11 +289,10 @@ def validate_employee_name(names, choice):
     Validates that the chosen name by the user matches current employees
     """
     if choice in names:
-        print("Correct")    
+        print("Correct")
+        return True
     else:
-        print('Wrong')
-        return False
-    return True
+        print("Invalid Name. Please try again")
 
 
 def validate_menu_num(menu, choice):
@@ -306,26 +300,34 @@ def validate_menu_num(menu, choice):
     Validates that the chosen menu number by the user matches current menu
     """
     if choice in menu:
-        print("Correct")    
+        print("Valid Menu Selection.\n")    
     else:
-        print('Wrong')
+        print('Invalid Menu Selection. Please try again.\n')
+
         return False
+    
     return True
 
 def validate_menue_two_edit_choice(edit_choice, list_of_hours):
-    choice_check = (int(edit_choice) + 1)
-    if choice_check < len(list_of_hours):
-        print("Valid entry")
-    else:
-        print("Invalid entry. Try again.")
+    try:
+        choice_check = (int(edit_choice) + 1)
+        if choice_check < len(list_of_hours):
+            print("Valid entry")
+        else:
+            print("Invalid entry. Try again.")
+            return False
+    except ValueError as e:
+        print(f'Invalid data: {e} Please use numerals 0 - 9.')
         return False
     return True
+
 
 def validate_date(date):
     try:
         dateObject = datetime.strptime(date, '%Y-%m-%d')
         return True
-    except ValueError:
+    except ValueError as e:
+        print(f"Error: {e}")
         return False
 
 
