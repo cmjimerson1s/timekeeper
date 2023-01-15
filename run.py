@@ -252,6 +252,7 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
             t_6, t_7 = end_time_calculation(t_1, t_2, t_3, t_4, t_5)
             clockout_valid = end_time_validation(t_6, t_7)
             if clockout_valid:
+                print(Fore.GREEN + 'Input Accepted')
                 break
 
     update_cells_hours(new_date, new_clockin, new_clockout, row_updated, sheet_choice, name_choice)
@@ -502,6 +503,7 @@ def end_time_validation(start, end):
         if end > start:
             return True
         else:
+            print(Fore.RED + "Error: Clock-out must be later than clock-in. Try again")
             return False
     except ValueError as e:
         print(Fore.RED + f'Invalid data: {e}')
