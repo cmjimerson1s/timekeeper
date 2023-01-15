@@ -26,15 +26,15 @@ def start_program():
         data = names.col_values(1)
         data.pop(0)
         name_list = ", ".join(data)
-        print('Please choose the employee whose working hours you wish to view.')
+        print('Please choose the employee whose working hours you wish to view.\n')
         print(f'Current employees are {name_list}.')
-        print('Please note, your choice is case sensitive.')
+        print('Please note, your choice is case sensitive.\n')
 
         while True:
             # This validates the input, ensureing inability to enter a blank input
             name_choice = input('Employee: \n')
             if not name_choice:
-                print('Please enter valid name.')
+                print('Error: Please enter valid name.\n')
             else:
                 break
         
@@ -228,7 +228,11 @@ def add_new_hours(worksheet, name_choice):
     while True:
         add_clockout = str(input('Clock-out: \n'))
         if validate_time(add_clockout):
-
+            t_1, t_2, t_3, t_4, t_5 = time_transform(add_clockin, add_clockout, 0)
+            t_6, t_7 = end_time_calculation(t_1, t_2, t_3, t_4, t_5)
+            clockout_valid = end_time_validation(t_6, t_7)
+            if clockout_valid:
+                break
     addition_data = [add_date, add_clockin, add_clockout]
     worksheet.append_row(addition_data)
     print('Updating sheet...\n')
@@ -258,7 +262,7 @@ def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total
     calc_end_min = end_min
     total_end = calc_end+calc_end_min
 
-    return total_start, total_end, monthly_total
+    return total_start, total_end
 
 
 # Below this line is the subfunction, and all related functions, to calculate the total hours
@@ -331,10 +335,10 @@ def validate_employee_name(names, choice):
     Validates that the chosen name by the user matches current employees
     """
     if choice in names:
-        print("Correct")
+        print("Input Accepted.\n")
         return True
     else:
-        print("Invalid Name. Please try again")
+        print("Invalid Name. Please try again \n")
 
 
 def validate_menu_num(menu, choice):
@@ -383,13 +387,16 @@ def validate_time(time):
             print('No Match')
             return False
     except ValueError as e:
-        print(f'Invalid data: {e} please use ##:##')
+        print(f'Invalid data: {e}')
 
 def end_time_validation(start, end):
-    if end > start:
-        return True
-    else:
-        return False
+    try:
+        if end > start:
+            return True
+        else:
+            return False
+    except ValueError as e:
+        print(f'Invalid data: {e}')
 
 
 
