@@ -30,7 +30,7 @@ def start_program():
 
         while True:
             # This validates the input, ensureing inability to enter a blank input
-            name_choice = input('Employee: ')
+            name_choice = input('Employee: \n')
             if not name_choice:
                 print('Please enter valid name.')
             else:
@@ -57,7 +57,7 @@ def main_menu(name_choice):
         
         while True:
             # This validates the input, ensureing inability to enter a blank input
-            main_menu_choice = input("Menu Number: ")
+            main_menu_choice = input("Menu Number: \n")
             if not main_menu_choice:
                 print('Please enter valid menu number.')
             else:
@@ -85,7 +85,7 @@ def menu_one(name_choice):
 
         while True:
             # This provides the return to the main menu function, still passing the initial chosen employee name
-            main_menu_return = input('Press Enter to return to Main Menu:')
+            main_menu_return = input('Press Enter to return to Main Menu: \n')
             if not main_menu_return:
                 main_menu(name_choice)
             else:
@@ -110,7 +110,7 @@ def menu_two(name_choice):
 
         while True:
             # This validates the input, ensureing inability to enter a blank input
-            string_edit_choice = str(input('What entry would you like to edit(Use number in far left column): '))
+            string_edit_choice = str(input('What entry would you like to edit(Use number in far left column): \n'))
             if not string_edit_choice:
                 print('Please enter valid menu number.')
             elif string_edit_choice == "Return":
@@ -175,9 +175,9 @@ def get_edit_row(row_choice, sheet_choice, name_choice):
     This collects the selected row to be edited by the user
     """
     row_updated = str(row_choice)
-    new_date = str(input("Enter Date: "))
-    new_clockin = str(input("Enter Clock-in: "))
-    new_clockout = str(input("Enter Clock-out: "))
+    new_date = str(input("Enter Date: \n"))
+    new_clockin = str(input("Enter Clock-in: \n"))
+    new_clockout = str(input("Enter Clock-out: \n"))
 
     update_cells_hours(new_date, new_clockin, new_clockout, row_updated, sheet_choice, name_choice)
 
@@ -201,12 +201,13 @@ def add_new_hours(worksheet):
     and clock-out that they wish to add to the selected users
     list
     """
-    add_date = str(input('Date: '))
-    add_clockin = str(input('Clock-in: '))
-    add_clockout = str(input('Clock-out: '))
-    addition_data = [add_date, add_clockin, add_clockout]
+    add_date = str(input('Date: \n'))
+    if validate_date(add_date):
+        add_clockin = str(input('Clock-in: \n'))
+        add_clockout = str(input('Clock-out: \n'))
+        addition_data = [add_date, add_clockin, add_clockout]
 
-    worksheet.append_row(addition_data)
+        worksheet.append_row(addition_data)
 
 
 def hour_combine(clockin, clockout):
@@ -286,7 +287,8 @@ def run_this(list_data, monthly_total):
     return final_total
 
 
-# Below this comment sits all the validation functions for the above menu functions
+# Below this comment sits all the validation 
+# functions for the above menu functions
 def validate_employee_name(names, choice):
     """
     Validates that the chosen name by the user matches current employees
@@ -318,6 +320,20 @@ def validate_menue_two_edit_choice(edit_choice, list_of_hours):
         print("Invalid entry. Try again.")
         return False
     return True
+
+def validate_date(date):
+    try:
+        dateObject = datetime.strptime(date, '%Y-%m-%d')
+        return True
+    except ValueError:
+        return False
+
+
+
+
+
+
+
 
 
 
