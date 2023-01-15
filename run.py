@@ -28,7 +28,6 @@ def landing():
     print(Fore.BLUE + '     developed by')
     print(Fore.BLUE + '  Christopher Jimerson')
 
-
     print(Fore.BLUE + 'To start, please sign in.\n')
 
     given_username = input(Fore.BLUE + '      Username: \n')
@@ -94,7 +93,7 @@ def main_menu(name_choice):
         print("5. Return to Employee Select\n")
 
         while True:
-        # This validates the input, ensureing inability to enter blank input
+            # This validates the input, ensureing inability to enter blank input
             main_menu_choice = input("Menu Number: \n")
             if not main_menu_choice:
                 print(Fore.RED + 'Please enter valid menu number.')
@@ -227,7 +226,6 @@ def menu_selector(name_choice, main_menu_choice):
         sleep(2)
         clear()
         start_program()
-
 
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
@@ -390,7 +388,7 @@ def time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     """
     total_minuts = (end_min - start_min)
     if total_minuts < 0:
-        total_minuts  = total_minuts * -1
+        total_minuts = total_minuts * -1
     total_hours = end_hour - start_hour
     calc_comb = (total_hours * 60) + total_minuts
     calc_total = calc_comb / 60
@@ -438,7 +436,7 @@ def validate_menu_num(menu, choice):
         print(Fore.RED + 'Invalid Menu Selection. Please try again.\n')
 
         return False
-  
+
     return True
 
 
@@ -509,81 +507,4 @@ def end_time_validation(start, end):
         print(Fore.RED + f'Invalid data: {e}')
 
 
-
-
-
-
-
 landing()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# add_new_name()
-# get_names()
-# add_new_sheet()
-
-# def add_new_sheet():
-#     """
-#     Adds new worksheet to spreadsheet
-#     """
-#     SHEET.add_worksheet(title = 'Frank', rows = 100, cols=20)
-
-
-# def add_new_name():
-#     NAMES.update('A4', 'Eddy')
