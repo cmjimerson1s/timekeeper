@@ -5,7 +5,7 @@ from datetime import datetime
 import re
 from os import system, name
 from time import sleep
-from color import Color
+from color import Color, Fore
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -21,17 +21,34 @@ NAMES = SHEET.get_worksheet(0)
 
 
 def landing():
-    print(Color.BLUE + 'Welcome to the software\n')
-    print(Color.BLUE + '      TIMEKEEPER\n')
-    print(Color.BLUE + '     developed by')
-    print(Color.BLUE + '  Christopher Jimerson')
+    username = 'Admin'
+    passwrd = 'letMein'
+    print(Fore.BLUE + 'Welcome to the software\n')
+    print(Fore.BLUE + '      TIMEKEEPER\n')
+    print(Fore.BLUE + '     developed by')
+    print(Fore.BLUE + '  Christopher Jimerson')
 
 
-    print(Color.BLUE + 'To start, please sign in.\n')
+    print(Fore.BLUE + 'To start, please sign in.\n')
 
-    input(Color.BLUE + '      Username: \n')
-
-    input(Color.BLUE + '      Password: \n')
+    given_username = input(Fore.BLUE + '      Username: \n')
+    while True:
+        if username == given_username:
+            print(Fore.GREEN + 'Username Accepted')
+            break
+        else:
+            print(Fore.RED + "Invalid Entry. Please try again ")
+            given_username = input(Fore.BLUE + '      Username: \n')
+    given_passwrd = input(Fore.BLUE + '      Password: \n')
+    while True:
+        if passwrd == given_passwrd:
+            print(Fore.GREEN + 'Password Accepted')
+            break
+        else:
+            print(Fore.RED + "Password Incorrect")
+            given_passwrd = input(Fore.BLUE + '      Password: \n')
+    sleep(2)
+    clear()
 
 
 def start_program():
@@ -51,7 +68,7 @@ def start_program():
             # Validates the input, ensureing inability to enter a blank input
             name_choice = input('Employee: \n')
             if not name_choice:
-                print('Error: Please enter valid name.\n')
+                print(Fore.RED + 'Error: Please enter valid name.\n')
             else:
                 break
         if validate_employee_name(data, name_choice):
@@ -79,7 +96,7 @@ def main_menu(name_choice):
         # This validates the input, ensureing inability to enter blank input
             main_menu_choice = input("Menu Number: \n")
             if not main_menu_choice:
-                print('Please enter valid menu number.')
+                print(Fore.RED + 'Please enter valid menu number.')
             else:
                 break
 
@@ -93,6 +110,7 @@ def menu_one(name_choice):
     Collects and displays all of the current time keeping data 
     for selected employee
     """
+    clear()
     while True:
         print(f"Menu 1: Currently viewing {name_choice}'s Hours \n")
         names = SHEET.get_worksheet(0)
@@ -109,9 +127,10 @@ def menu_one(name_choice):
             # still passing the initial chosen employee name
             main_menu_return = input('Press Enter to return to Main Menu: \n')
             if not main_menu_return:
+                clear()
                 main_menu(name_choice)
             else:
-                print('If done, please press enter to return to main menu.')
+                print(Fore.RED + 'If done, please press enter to return to main menu.')
 
 
 def menu_two(name_choice):
@@ -137,6 +156,8 @@ def menu_two(name_choice):
             if not string_edit_choice:
                 print('Please enter valid menu number.')
             elif string_edit_choice == "Return":
+                sleep(1)
+                clear()
                 main_menu(name_choice)
             else:
                 break
@@ -180,15 +201,26 @@ def menu_selector(name_choice, main_menu_choice):
     Runs to direct user towards the apporiate menu of their selection
     """
     if main_menu_choice == "1":
+        sleep(2)
+        clear()
         menu_one(name_choice)
     elif main_menu_choice == "2":
+        sleep(2)
+        clear()
         menu_two(name_choice)
     elif main_menu_choice == "3":
+        sleep(2)
+        clear()
         menu_three(name_choice)
     elif main_menu_choice == "4":
+        sleep(2)
+        clear()
         menu_four(name_choice)
     elif main_menu_choice == "5":
+        sleep(2)
+        clear()
         start_program()
+
 
 
 def get_edit_row(row_choice, sheet_choice, name_choice):
