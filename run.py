@@ -55,7 +55,7 @@ def main_menu(name_choice):
         print(f"1. View {name_choice}'s Hours\n")
         print(f"2. Edit {name_choice}'s Hours\n")
         print(f"3. Add Entry to {name_choice}'s Hours\n")
-        print(f"4. Calculate {name_choice}'s Current Monthly Salary\n")
+        print(f"4. Calculate {name_choice}'s Current Total Hours\n")
         print("5. Return to Employee Select\n")
         
         while True:
@@ -139,6 +139,7 @@ def menu_three(name_choice):
     hours = SHEET.get_worksheet(x)
 
     print('Please enter the date, clock-in, and clock-out you would like to add. \n')
+    print('Format: Date = YYYY-MM-DD')
     add_new_hours(hours, name_choice)
     
 
@@ -249,6 +250,16 @@ def hour_combine(clockin, clockout):
         combo_list.append(math_list)
     return combo_list
 
+def dict_list_convert(input_list):
+    result = []
+    for ids, datas in enumerate(new_list, start = 0):
+        if ids == 0:
+            result.append(list(datas.keys()))
+            result.append(list(datas.values()))
+        else:
+            result.append(list(datas.values()))
+    
+    return result
 
 # Below this line is the subfunction, and all related functions, to calculate the monthly hours
 def loop_split(combo_list, round, monthly_total):
