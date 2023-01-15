@@ -3,6 +3,9 @@ from google.oauth2.service_account import Credentials
 import pandas as pd
 from datetime import datetime
 import re
+from os import system, name
+from time import sleep
+from color import Color
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -15,6 +18,20 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('timekeeper')
 NAMES = SHEET.get_worksheet(0)
+
+
+def landing():
+    print(Color.BLUE + 'Welcome to the software\n')
+    print(Color.BLUE + '      TIMEKEEPER\n')
+    print(Color.BLUE + '     developed by')
+    print(Color.BLUE + '  Christopher Jimerson')
+
+
+    print(Color.BLUE + 'To start, please sign in.\n')
+
+    input(Color.BLUE + '      Username: \n')
+
+    input(Color.BLUE + '      Password: \n')
 
 
 def start_program():
@@ -38,6 +55,8 @@ def start_program():
             else:
                 break
         if validate_employee_name(data, name_choice):
+            sleep(2)
+            clear()
             main_menu(name_choice)
 
 
@@ -251,6 +270,7 @@ def hour_combine(clockin, clockout):
         combo_list.append(math_list)
     return combo_list
 
+
 def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total):
     """
     This function collects the entered times, clock in 
@@ -271,6 +291,16 @@ def end_time_calculation(start_hour, start_min, end_hour, end_min, monthly_total
     total_end = calc_end+calc_end_min
 
     return total_start, total_end
+
+
+def clear():
+    """
+    Function clears terminal
+    """
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 
 
 # Below this line is the subfunction, and all related functions, to calculate the total hours
@@ -434,7 +464,7 @@ def end_time_validation(start, end):
 
 
 
-
+landing()
 start_program()
 
 
