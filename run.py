@@ -193,9 +193,9 @@ def menu_two(name_choice):
 
 def menu_three(name_choice):
     """
-    Main landing of the add function 
-    of the software, allowing users to add 
-    brand new inputs of a date, clock-in and 
+    Main landing of the add function
+    of the software, allowing users to add
+    brand new inputs of a date, clock-in and
     clock-out.
     """
     names = SHEET.get_worksheet(0)
@@ -213,7 +213,7 @@ def menu_four(name_choice):
     This function collects data from the google sheet, creating lists
     of all the clock-in and clock-out listed to each employee, and
     then is sent to functions for collection and calculations
-    to convert the strings to ints and provide a list of each 
+    to convert the strings to ints and provide a list of each
     dates hour total to then sum and provide a grand total
     of hours listed for the selected employee
     """

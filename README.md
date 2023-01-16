@@ -136,10 +136,14 @@ As a user...
 ### Libraries
 
 #### Python Libraries
-
-
+- datetime - used for date validation
+- re - used for time format validation
+- os - used to clear terminal
+- time - used to displayed delayed messages in the terminal
 #### Third Party Libraries
-
+- [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: I used gspread as a mock database to hold the employee data, and list of employees and thus; used the database to read and write from my application.
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - JUSTIFICATION: this allows the connection between my application and Google API so that it has the credentials and authorization  to access, and edit, my database(Google sheet)
+- [colorama](https://pypi.org/project/colorama/) - JUSTIFICATION: I used this library to add color to the terminal and provide easy visual feedback to the user based on either accepted data entry(green text) or errors(red text)
 
 [Back to Table Of Contents](#table-of-contents)
 
