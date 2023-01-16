@@ -1,6 +1,12 @@
+# TIMEKEEPER: Simple Time Keeping Software 
 
+**Developer: Christopher Jimerson**
+
+[Visit Live Site](https://time-keeper.herokuapp.com/)
+
+![Site Image](imgs/landing-main.png)
 ## About
-
+This project is a simple time management software that helps a user view, change, edit, and calculate hours for employees.
 
 
 ## Table of Contents
@@ -34,23 +40,32 @@
 
 ### User Goals
 
-
+- Easily view the data for the employees stored in the database
+- Easily move through the application with clear response to correct, or incorrect use
+- Understand what is asked of me for each part of the application
 
 ### Site Owner Goals
 
+- Create an easy to use system for a user to navigate and utilize
+- Provide feedback on what a user does, correct or otherwise
+- Give examples of data formats that are needed to use the system
 
 ## User Experience
 
 ### Target Audience
 
-
+- This is targeted at users that have a small team and need to have an easy way to manage the times of their teams work
 
 ### User Requirements and Expectations
 
+- A straight forward and error absent application
+- Easy to understand navigation
+- Clear purposes to each function
+- Feedback from user input
 
 ### User Manual
 
-<
+<details><summary>For a more details view of the instructions on how-to-use, click here</summary>
 
 #### Landing-Authentication
 
@@ -73,6 +88,7 @@
 
 
 #### Menu Five
+</details>
 
 
 [Back to Table Of Contents](#table-of-contents)
@@ -81,23 +97,18 @@
 
 ### Users
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
+As a user...
 
-### Site Owner
-
-10. 
-11. 
-12. 
-13. 
-14. 
+1. I want to easily see employee working hours 
+2. I want to know what menus are available
+3. I want to see what employees are in our database
+4. I want the software protected from just having anyone use it
+5. I want to be able to edit existing data
+6. I want to add new data for an employee
+7. I want to know how many total hours are in the database for each of our employees
+8. I want to easily navigate back to the beginning
+9. I want feedback on my data input
+10. I want to know that my changes have been successful
 
 [Back to Table Of Contents](#table-of-contents)
 
@@ -111,7 +122,6 @@
 ## Technologies Used
 
 ### Languages
-
 - [Python](https://www.python.org/) programming language for the logic of the program
 
 ### Frameworks & Tools
@@ -119,7 +129,8 @@
 - [GitHub](https://github.com/) was used as a remote repository to store project code
 - [Google Cloud Platform](https://cloud.google.com/cloud-console/) was used to manage access and permissions to the Google Services such as Google auth, sheets etc.
 - [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store players details
-- [PEP8](http://pep8online.com/) was used to check my code against Python conventions
+- [Code Institute PEP8](https://pep8ci.herokuapp.com//) was used to check my code against Python conventions
+- [Heroku](https://www.heroku.com/) was used to deploy this project to a live environment
 
 
 ### Libraries
