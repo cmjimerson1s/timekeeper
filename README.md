@@ -19,7 +19,6 @@ This project is a simple time management software that helps a user view, change
     - [User Manual](#user-manual)
   - [User Stories](#user-stories)
     - [Users](#users)
-    - [Site Owner](#site-owner)
   - [Technical Design](#technical-design)
     - [Flowchart](#flowchart)
   - [Technologies Used](#technologies-used)
@@ -30,7 +29,6 @@ This project is a simple time management software that helps a user view, change
   - [Validation](#validation)
   - [Testing](#testing)
     - [Manual Testing](#manual-testing)
-    - [Automated Testing](#automated-testing)
   - [Bugs](#bugs)
   - [Deployment](#deployment)
   - [Credits](#credits)
@@ -532,3 +530,7 @@ GSpread: I used their documenation and resouces to utilize my database
 
 
 ## Acknowledgements
+-My mentor, Mo Shami, he has been amazing and a wonderful source of direction and encouragement
+-My partner, you have been going through a lot and you have always found the strength and dedication to help me as much as possible
+-My roommate, again, you're doing more than you should to help things go smoothly around the house. I really appreciate what you do
+-My friends Oskar, Patrik, and Mark, you all are so supportive and encouraging and have helped me feel incredibull :P
