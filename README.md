@@ -4,7 +4,7 @@
 
 [Visit Live Site](https://time-keeper.herokuapp.com/)
 
-![Site Image](imgs/landing-main.png)
+![Site Image](imgs/feat/landing-main.png)
 ## About
 This project is a simple time management software that helps a user view, change, edit, and calculate hours for employees.
 
@@ -366,55 +366,51 @@ When the user enters the clock-out time, either through menu three or two, the c
 
 ## Testing
 
-The testing approach for this code was primarily manual testing of user stories
-
-
-### Manual Testing
-<details><summary></summary>
+The testing approach for this code was primarily manual testing of user stories<br>
 
 1. I want to easily see employee working hours 
 
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| **Feature**   | **Action**                    | **Expected Result**            | **Actual Result** |
+| ------------- | ----------------------------- | -------------------------------| ----------------- |
+| Menu One | Selection Main Menu Option 1 | Display organized list of data | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/testing/menu_one_sorted.jpg">
+</details><br>
 
 2. I want to know what menus are available
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Main Menu | Navigate to Main Menu | Display list of Menu Options | Work as expected |
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/testing/main_menu_selection.png">
+</details><br>
 
 3. I want to see what employees are in our database
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Employee Select | Navigate to Employee Select Screen | View a list of names | Work as expected|
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/testing/employee_request_list.png">
+</details><br>
 
 4. I want the softrware protected from just having anyone use it
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Landing-Authentication | Start Program | Be required to enter valid username/password | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
+
+<details><summary>Screenshots</summary>
+<img src="imgs/testing/landing_un_request.png">
+<img src="imgs/testing/landing_pw_request.png">
+</details><br>
 
 5. I want to be able to edit existing data 
 
