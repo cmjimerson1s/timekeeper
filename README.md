@@ -282,22 +282,72 @@ As a user...
 - Red text with failure messages display
 - User stories covered: 9, 10
 <details>
-    <summary></summary>
+    <summary>Landing Page Username and Password</summary>
 
-![ ](img_directory_here)
+![Username Fail ](imgs/input/landing_un_fail.png)
+![Username Success ](imgs/input/landing_un_correct.png)
+![Password Fail ](imgs/input/landing_pw_fail.png)
+![Password Success ](imgs/input/landing_pw_correct.png)
 </details>
 
 <details>
-    <summary></summary>
+    <summary>Employee Select Name Input</summary>
 
-![ ](img_directory_here)
+![Employee Select Fail ](imgs/input/employee_request_failure.png)
+![Employee Select Success ](imgs/input/employee_request_correct.png)
 </details>
 
 <details>
-    <summary></summary>
+    <summary>Main Menu Selection</summary>
 
-![ ]((img_directory_here)
+![Main Menu Fail ]((imgs/input/main_menu_selection_fail.jpg)
+![Main Menu Success ]((imgs/input/main_menu_selection_correct.jpg)
 </details>
+
+<details>
+    <summary>Menu One Return</summary>
+
+![Menu One Return Fail ]((imgs/input/menu_one_failed_input.jpg)
+</details>
+
+<details>
+    <summary>Menu Two Selection</summary>
+
+![Menu Two Selection Fail]((imgs/input/menu_two_edit_menu_input_fail.jpg)
+![Menu Two Selection Success]((imgs/input/menu_two_edit_menu_input_ok.jpg)
+</details>
+
+<details>
+    <summary>Date Input</summary>
+
+![Date Input Fail ]((imgs/input/menu_two_edit_menu_date_fail.jpg)
+![Date Input Success ]((imgs/input/menu_two_edit_menu_date_ok.jpg)
+</details>
+
+<details>
+    <summary>Time Input</summary>
+
+![Time Input Fail]((imgs/input/menu_two_edit_menu_timein_fail.jpg)
+![Time Input Success]((imgs/input/menu_two_edit_menu_timein_ok.jpg)
+</details>
+
+#### Clock-Out
+<br>
+When the user enters the clock-out time, either through menu three or two, the clock-out must be later than the clock-in. The format must be correct as well, as with the Time Input feature
+<details>
+    <summary>Clock-out Input</summary>
+
+![ Clock-out Input Fail]((imgs/input/menu_two_edit_menu_timeout_fail_format_ok.jpg)
+</details>
+
+<details>
+    <summary>Input Update</summary>
+
+![Menu Three Update ]((imgs/input/menu_three_success.jpg)
+</details>
+
+
+
 
 [Back to Table Of Contents](img_directory_here)
 
