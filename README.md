@@ -525,12 +525,12 @@ This application has been deployed from Github using Heroku. Here's how:
 ## Credits
 
 ### Code
-Code Institue: I utilized the code-along video for Love Sandwiches to set up the Google API
-GSpread: I used their documenation and resouces to utilize my database 
+Code Institue: I utilized the code-along video for Love Sandwiches to set up the Google API<br>
+GSpread: I used their documenation and resouces to utilize my database <br>
 
 
 ## Acknowledgements
--My mentor, Mo Shami, he has been amazing and a wonderful source of direction and encouragement
--My partner, you have been going through a lot and you have always found the strength and dedication to help me as much as possible
--My roommate, again, you're doing more than you should to help things go smoothly around the house. I really appreciate what you do
--My friends Oskar, Patrik, and Mark, you all are so supportive and encouraging and have helped me feel incredibull :P
+-My mentor, Mo Shami, he has been amazing and a wonderful source of direction and encouragement<br>
+-My partner, you have been going through a lot and you have always found the strength and dedication to help me as much as possible<br>
+-My roommate, again, you're doing more than you should to help things go smoothly around the house. I really appreciate what you do<br>
+-My friends Oskar, Patrik, and Mark, you all are so supportive and encouraging and have helped me feel incredibull :P<br>
