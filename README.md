@@ -77,12 +77,14 @@ Note: The entry is case sensitive and must<br>
 
 Once entered correctly, the user is directed to the Employee Select screen.
 <br>
+
 ### Employee Select
 <br>
 On this screen the user is asked to provide the employee, by name, whose data they wish to access.<br>
 The input again is case sensitve and must match the provided names.<br>
 Once correct, the user will be taken to the main menu.<br>
 <br>
+
 ### Main Menu
 <br>
 The main menu provides the user with five options, each one listed numerically in order.<br>
@@ -96,11 +98,13 @@ The main menu provides the user with five options, each one listed numerically i
 The user is asked which menu they would like to visit and the bottom of the page shows the requested input to be the chosen menu number.<br>
 Once chosen, and correct, the user will be taken to the menu of choice.<br>
 <br>
+
 ### Menu One
 <br>
 This menu is simply a view of the selected employees total hours, organized in chronological order.<br>
 When the user is done, they simply should press enter to return to the main menu.<br>
 <br>
+
 ### Menu Two
 <br>
 This menu allows the user to select an entry, by using the instance number in the far left column, to edit.<br>
@@ -109,6 +113,7 @@ This menu shows the user their selected entry at the top and then provides the i
 The user must then input the correct date and clock-in and clock-out.<br>
 Once done, they are given an status update of the success, or failure, of their upload, and then redirected back to menu two.<br>
 <br>
+
 ### Menu Three
 <br>
 This menu allows users to add a brand new entry to the employee.<br>
@@ -116,11 +121,13 @@ The user is presented with the correct format that their new data should be in<b
 Users must input the correct format for a date, clock-in and clock-out.<br>
 Once done the user will be provided a status update of the success, or failure, of their upload and then redirected back to the main menu.<br>
 <br>
+
 ### Menu Four
 <br>
 This menu displays to the user the total hours for the selected employee currently in the database.<br> 
 It will display the total for a few seconds, and then redirect the user back to the main men.<br> 
 <br>
+
 ### Menu Five
 This menu navigates the user back to the employee select screen where they are able to choose the which employee they want to access. 
 
@@ -152,9 +159,11 @@ As a user...
 ## Technical Design
 
 ### Flowchart
+Here is a flow chart of the main logic, from landing page, to employee select, and covering menu one, menu two, and menu three. 
 
-
-
+<details><summary>Flow Chart</summary>
+<img src="imgs/feat/flow_part_1.jpg">
+</details> 
 
 ## Technologies Used
 
@@ -339,6 +348,7 @@ When the user enters the clock-out time, either through menu three or two, the c
 ![ Clock-out Input Fail](imgs/input/menu_two_edit_menu_timeout_fail_format_ok.jpg)
 </details>
 
+#### Input Update Status
 <details>
     <summary>Input Update</summary>
 
@@ -517,6 +527,8 @@ This application has been deployed from Github using Heroku. Here's how:
 ## Credits
 
 ### Code
+Code Institue: I utilized the code-along video for Love Sandwiches to set up the Google API
+GSpread: I used their documenation and resouces to utilize my database 
 
 
 ## Acknowledgements
