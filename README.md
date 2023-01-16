@@ -67,29 +67,66 @@ This project is a simple time management software that helps a user view, change
 
 <details><summary>For a more details view of the instructions on how-to-use, click here</summary>
 
-#### Landing-Authentication
+### Landing-Authentication
+<br>
+When the program starts the user finds themselves on a landing page. This page is requesting the user to log-in. For testing purposes, we only have one current user credentials. The username and password are as follows:<br>
+username: Admin<br>
+password: letMein<br>
 
+Note: The entry is case sensitive and must<br>
 
-#### Employee Select
+Once entered correctly, the user is directed to the Employee Select screen.
+<br>
+### Employee Select
+<br>
+On this screen the user is asked to provide the employee, by name, whose data they wish to access.<br>
+The input again is case sensitve and must match the provided names.<br>
+Once correct, the user will be taken to the main menu.<br>
+<br>
+### Main Menu
+<br>
+The main menu provides the user with five options, each one listed numerically in order.<br>
+<br>
+1. View "employee name" Hour<br>
+2. Edit "employee name" Hours<br>
+3. Add Entry to "employ name" Hours<br>
+4. Calculate "employee name" Current Total Hours<br>
+5. Retrun to Employee Select<br>
+<br>
+The user is asked which menu they would like to visit and the bottom of the page shows the requested input to be the chosen menu number.<br>
+Once chosen, and correct, the user will be taken to the menu of choice.<br>
+<br>
+### Menu One
+<br>
+This menu is simply a view of the selected employees total hours, organized in chronological order.<br>
+When the user is done, they simply should press enter to return to the main menu.<br>
+<br>
+### Menu Two
+<br>
+This menu allows the user to select an entry, by using the instance number in the far left column, to edit.<br>
+Once selected, the user is then taken to a submenu, which is the choice edit menu.<br>
+This menu shows the user their selected entry at the top and then provides the input format for the date and times.<br>
+The user must then input the correct date and clock-in and clock-out.<br>
+Once done, they are given an status update of the success, or failure, of their upload, and then redirected back to menu two.<br>
+<br>
+### Menu Three
+<br>
+This menu allows users to add a brand new entry to the employee.<br>
+The user is presented with the correct format that their new data should be in<br>
+Users must input the correct format for a date, clock-in and clock-out.<br>
+Once done the user will be provided a status update of the success, or failure, of their upload and then redirected back to the main menu.<br>
+<br>
+### Menu Four
+<br>
+This menu displays to the user the total hours for the selected employee currently in the database.<br> 
+It will display the total for a few seconds, and then redirect the user back to the main men.<br> 
+<br>
+### Menu Five
+This menu navigates the user back to the employee select screen where they are able to choose the which employee they want to access. 
 
-#### Main Menu
-
-
-#### Menu One
-
-
-#### Menu Two
-
-
-#### Menu Three
-
-
-#### Menu Four
-
-
-#### Menu Five
 </details>
 
+<br>
 
 [Back to Table Of Contents](#table-of-contents)
 
@@ -150,77 +187,100 @@ As a user...
 ## Features
 
 ### Landing-Authentication
-
+- Provides user with title and welcome
+- Gives request to sign-in
+- Requests username and password
+- User stories covered: 4 
 
 <details>
-    <summary></summary>
+    <summary>Landing Screen Shot</summary>
 
-![Landing-Authentication](img_directory_here)
+![Landing-Authentication](imgs/feat/landing-main.png)
 </details>
 
 ### Employee Select
+- Provides list of current employees in database
+- Requests users to choose from current list to progress
+- User stories covered: 3
 
 <details>
-    <summary</summary>
+    <summary>Employee Select Screen Shot</summary>
 
-![Employee Select](dimg_directory_here)
+![Employee Select](imgs/feat/employee_request.png)
 </details>
 
 ### Main Menu
-
+- Provides list of the menus the user has access to
+- Request menu choice
+- User stories covered: 2
 <details>
-    <summary></summary>
+    <summary>Screen Shot</summary>
 
-![Main Menu](img_directory_here)
+![Main Menu](imgs/feat/main_menu.png)
 </details>
 
 ### Menu One
-
+- Displays all entries for selected employee
+- Data is organized chronologically
+- User stories covered: 1
 
 <details>
-    <summary></summary>
+    <summary>Menu One Screen Shot</summary>
 
-![Menu One](img_directory_here)
+![Menu One](imgs/feat/menu_one.jpg)
 </details>
 
 
 ### Menu Two
-
+- Displays all entries for selcted employee
+- This list is organized by instance of addition, not chronological
+- Once entry is selected, user may edit the date, clock-in, and clock-out
+- User stories covered: 5
 <details>
-    <summary></summary>
+    <summary>Menu Two Screen Shot</summary>
 
-![Menu Two](img_directory_here)
+![Menu Two](imgs/feat/menu_two.jpg)
+</details>
+<details>
+    <summary>Menu Two Submenu Screen Shot</summary>
+
+![Menu Two-Submenu](imgs/feat/menu_two_edit_menu.jpg)
 </details>
 
-
 ### Menu Three
-
+- Allows users to add new entry to selected employee database
+- Requests the date, clock-in, and clock-out of the new entry
+- User stories covered: 6
 <details>
-    <summary></summary>
+    <summary>Menu Three Screen Shot</summary>
 
-![Menu Three](img_directory_here)
+![Menu Three](imgs/feat/menu_three.jpg)
 </details>
 
 ### Menu Four
-
+- Calculates and displays total hours in the database for given employee
+- User stories covered: 7
 <details>
-    <summary></summary>
+    <summary>Menu Four Screen Shot</summary>
 
-![Menu Four](img_directory_here)
+![Menu Four](imgs/feat/menu_four.jpg)
 </details>
 
 ### Menu Five
+- Navigates the user back to the employee select screen
+- User stories covered: 8
 
 <details>
-    <summary></summary>
+    <summary>Menu Five Screen Shot</summary>
 
-![Menu Five](img_directory_here)
+![Menu Five](imgs/feat/menu_five.jpg)
 </details>
 
-
-
 ### User Input Validation
-
+- For every input requested from the user we provide validation
+- Green text with success messages display
+- Red text with failure messages display
+- User stories covered: 9, 10
 <details>
     <summary></summary>
 
@@ -243,10 +303,14 @@ As a user...
 
 ## Validation
 
-[PEP8 Validation Service](https://pep8ci.herokuapp.com//) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
+[Code Institute PEP8 Validation Service](https://pep8ci.herokuapp.com//) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
 
 <details><summary>PEP8 Heroku App check for run.py</summary>
-<img src="">
+<img src=imgs/val/validation_py.jpg>
+</details>
+
+<details><summary>PEP8 Heroku App check for color.py</summary>
+<img src=imgs/val/color_validation.jpg>
 </details>
 
 
@@ -258,7 +322,7 @@ The testing approach for this code was primarily manual testing of user stories
 ### Manual Testing
 <details><summary></summary>
 
-Number. 
+1. I want to easily see employee working hours 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -269,7 +333,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+2. I want to know what menus are available
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -280,7 +344,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+3. I want to see what employees are in our database
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -291,7 +355,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+4. I want the softrware protected from just having anyone use it
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -302,7 +366,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+5. I want to be able to edit existing data 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -313,7 +377,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+6. I want to add new data for an employee 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -324,7 +388,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+7. I want to know how many total hours are in the database for each of our employees
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -335,7 +399,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+8. I want to easily navigate back to the beginning 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -346,7 +410,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
+9. I want feedback on my data input 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -357,40 +421,7 @@ Number.
 <img src="">
 </details>
 
-Number. 
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
-Number. 
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
-Number. 
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
-Number. 
+10. I want to know that my changes have been successful 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -450,9 +481,6 @@ This application has been deployed from Github using Heroku. Here's how:
 [Back to Table Of Contents](#table-of-contents)
 
 ## Credits
-
-### Images
-
 
 ### Code
 
