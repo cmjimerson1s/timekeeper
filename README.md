@@ -332,7 +332,6 @@ As a user...
 </details>
 
 #### Clock-Out
-<br>
 When the user enters the clock-out time, either through menu three or two, the clock-out must be later than the clock-in. The format must be correct as well, as with the Time Input feature
 <details>
     <summary>Clock-out Input</summary>
