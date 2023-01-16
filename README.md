@@ -416,79 +416,68 @@ The testing approach for this code was primarily manual testing of user stories<
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Menu Two | Select 2 from Main Menu | Have access to entries and edit chosen selection | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/testing/menu_two_edit_menu_selected.jpg">
+</details><br>
 
 6. I want to add new data for an employee 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Menu Three | Select 3 from Main Menu | Add a new entry to selected employee | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/feat/menu_three.jpg">
+</details><br>
 
 7. I want to know how many total hours are in the database for each of our employees
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Menu Four | Select 4 from Main Menu | View total hours in database for selected employee | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/feat/menu_four.jpg">
+</details><br>
 
 8. I want to easily navigate back to the beginning 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| Menu Five | Select 5 from Main Menu | Return to Employee Select | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/feat/menu_five.jpg">
+</details><br>
 
 9. I want feedback on my data input 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| User Input Validation | Input data when requested | Display green when correct, red when wrong | Works as expected|
+
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
+<img src="imgs/input/landing_pw_fail.png">
+<img src="imgs/input/landing_pw_correct.png">
+</details><br>
 
 10. I want to know that my changes have been successful 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
+| User Input Validation | Finish adding/updating entry | Give status of update | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="">
-</details>
-
-Number. 
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-|  | | | |
-|  | | | |
-
-<details><summary>Screenshot</summary>
-<img src="">
-</details>
-
+<img src="imgs/testing/menu_two_edit_menu_update.jpg">
+<img src="imgs/input/menu_three_success.jpg">
+</details><br>
 
 [Back to Table Of Contents](#table-of-contents)
 ## Bugs
